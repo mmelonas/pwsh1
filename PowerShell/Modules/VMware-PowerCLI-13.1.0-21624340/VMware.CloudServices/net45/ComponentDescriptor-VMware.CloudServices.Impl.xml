@@ -1,0 +1,22 @@
+<ComponentDescriptor>
+	<Name>VMware.CloudServices.Impl</Name>
+	<Assembly>VMware.CloudServices.Impl</Assembly>
+	<ImplementingType>VMware.CloudServices.Impl.V1.VcsImpl</ImplementingType>
+	<IsSnapin>false</IsSnapin>
+
+	<ProvidedServiceList>
+		<ServiceDescriptor>
+			<Name>VcsComponentService</Name>
+			<Version>1.0</Version>
+		</ServiceDescriptor>
+	</ProvidedServiceList>
+
+   <RequiredServiceList>
+       <ServiceDescriptor>
+           <Name>CommonOAuthService</Name>
+           <Version>1.0</Version>
+       </ServiceDescriptor>
+   </RequiredServiceList>
+
+	<ExtendedServiceList></ExtendedServiceList>
+</ComponentDescriptor>

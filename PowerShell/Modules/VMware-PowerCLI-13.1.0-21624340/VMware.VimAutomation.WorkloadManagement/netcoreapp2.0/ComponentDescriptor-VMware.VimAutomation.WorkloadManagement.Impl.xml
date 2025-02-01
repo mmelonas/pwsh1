@@ -1,0 +1,26 @@
+<ComponentDescriptor>
+	<Name>VMware.VimAutomation.WorkloadManagement.Impl</Name>
+	<Assembly>VMware.VimAutomation.WorkloadManagement.Impl</Assembly>
+	<ImplementingType>VMware.VimAutomation.WorkloadManagement.Impl.V1.WMImpl</ImplementingType>
+	<IsSnapin>false</IsSnapin>
+
+	<ProvidedServiceList>
+		<ServiceDescriptor>
+			<Name>WMService</Name>
+			<Version>1.0</Version>
+		</ServiceDescriptor>
+	</ProvidedServiceList>
+
+	<RequiredServiceList>
+		<ServiceDescriptor>
+			<Name>ViCoreService</Name>
+			<Version>1.0</Version>
+		</ServiceDescriptor>
+    <ServiceDescriptor>
+      <Name>StorageCoreService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+   </RequiredServiceList>
+
+	<ExtendedServiceList></ExtendedServiceList>
+</ComponentDescriptor>

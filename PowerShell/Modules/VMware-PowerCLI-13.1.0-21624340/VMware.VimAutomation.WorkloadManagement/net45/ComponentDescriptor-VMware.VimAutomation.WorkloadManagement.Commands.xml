@@ -1,0 +1,26 @@
+<ComponentDescriptor>
+  <Name>VMware.VimAutomation.WorkloadManagement.Commands</Name>
+  <Assembly>VMware.VimAutomation.WorkloadManagement.Commands</Assembly>
+  <ImplementingType>VMware.VimAutomation.WorkloadManagement.Commands.CommandsComponent</ImplementingType>
+  <IsSnapin>true</IsSnapin>
+  <ProvidedServiceList>
+  </ProvidedServiceList>
+  <RequiredServiceList>
+    <ServiceDescriptor>
+      <Name>WMService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+  </RequiredServiceList>
+  <ExtendedServiceList>
+  </ExtendedServiceList>
+  <Version>
+    <Major>12</Major>
+    <Minor>4</Minor>
+    <Revision>0</Revision>
+    <Build>18627055</Build>
+    <Company>VMware Inc.</Company>
+    <Copyright>Copyright 2019</Copyright>
+    <UserFriendlyVersion>VMware Workload Management PowerCLI Component PowerCLI Component 12.4 build 18627055</UserFriendlyVersion>
+    <Description>PowerShell commands for automation of workloads related functionality in vSphere.</Description>
+  </Version>
+</ComponentDescriptor>

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>VMware.vSphere.SsoAdmin.Utils</RootNamespace>
+    <AssemblyName>VMware.vSphere.SsoAdmin.Utils</AssemblyName>
+    <Description>vSphere Lookup SsoAdmin utility types.</Description>
+    <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="Microsoft.WSMan.Runtime" Version="6.1.0" />
+    <PackageReference Include="VMware.System.Private.ServiceModel" Version="4.4.4" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\VMware.vSphere.SsoAdminClient\VMware.vSphere.SsoAdminClient.csproj" />
+  </ItemGroup>
+
+</Project>

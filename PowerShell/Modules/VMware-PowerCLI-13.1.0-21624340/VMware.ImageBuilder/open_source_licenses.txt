@@ -1,0 +1,72 @@
+open_source_licenses.txt
+
+VMware PowerCLI 13.0.0 GA
+======================================================================
+
+The following copyright statements and licenses apply to various open
+source software packages (or portions thereof) that are distributed with
+this VMware Product.
+
+The VMware Product may also include other VMware components, which may
+contain additional open source software packages. One or more such
+open_source_licenses.txt files may therefore accompany this VMware
+Product.
+
+The VMware Product that includes this file does not necessarily use all
+the open source software packages referred to below and may also only
+use portions of a given package.
+
+==================== TABLE OF CONTENTS ====================
+
+The following is a listing of the open source components detailed in
+this document. This list is provided for your convenience; please read
+further if you wish to review the copyright notice(s) and the full text
+of the license associated with each component.
+
+SECTION 1: BSD-STYLE, MIT-STYLE, OR SIMILAR STYLE LICENSES
+
+   >>> openssl-1.1.1s
+
+-------------------- SECTION 1: BSD-STYLE, MIT-STYLE, OR SIMILAR STYLE LICENSES --------------------
+
+   >>> openssl-1.1.1s
+
+       License : OpenSSL
+
+       ADDITIONAL LICENSE INFORMATION
+
+       > CC0-1.0
+
+       cayman_openssl-b0e327e74b00150773a45a3e11440891bca42b41/openssl/COPYRIGHT.spdx.template
+
+       Copyright (c) 2021 VMWare Inc.
+
+       See SECTION 1 in 'LICENSE TEXT REFERENCE TABLE'
+
+
+==================== LICENSE TEXT REFERENCE TABLE ====================
+
+-------------------- SECTION 1 --------------------
+DataLicense: CC0-1.0
+
+
+
+======================================================================
+
+To the extent any open source components are licensed under the GPL
+and/or LGPL, or other similar licenses that require the source code
+and/or modifications to source code to be made available (as would be
+noted above), you may obtain a copy of the source code corresponding to
+the binaries for such open source components and modifications thereto,
+if any, (the "Source Files"), by downloading the Source Files from
+VMware's website at http://www.vmware.com/download/open_source.html, or
+by sending a request, with your name and address to: VMware, Inc., 3401
+Hillview Avenue, Palo Alto, CA 94304, United States of America. All such
+requests should clearly specify: OPEN SOURCE FILES REQUEST, Attention
+General Counsel. VMware shall mail a copy of the Source Files to you on
+a CD or equivalent physical medium. This offer to obtain a copy of the
+Source Files is valid for three years from the date you acquired this
+Software product. Alternatively, the Source Files may accompany the
+VMware product.
+
+[POWERCLIIMAGEBUILDER1300GA111122]

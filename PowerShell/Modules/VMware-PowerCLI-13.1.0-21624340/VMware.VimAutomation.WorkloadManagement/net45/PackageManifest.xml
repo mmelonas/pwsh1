@@ -1,0 +1,6 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.WorkloadManagement.Impl" Version="12.4.0.18627055" />
+   <Package Id="VMware.VimAutomation.WorkloadManagement.Interop" Version="12.4.0.18627055" />
+   <Package Id="VMware.VimAutomation.WorkloadManagement.Types" Version="12.4.0.18627055" />
+   <Package Id="VMware.VimAutomation.WorkloadManagement.Commands" Version="12.4.0.18627055" />
+</ModulePackages>

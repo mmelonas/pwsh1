@@ -1,0 +1,26 @@
+<ComponentDescriptor>
+  <Name>VMware.CloudServices.Commands</Name>
+  <Assembly>VMware.CloudServices.Commands</Assembly>
+  <ImplementingType>VMware.CloudServices.Commands.VcsCmdletsImpl</ImplementingType>
+  <IsSnapin>true</IsSnapin>
+  <ProvidedServiceList>
+  </ProvidedServiceList>
+  <RequiredServiceList>
+    <ServiceDescriptor>
+      <Name>VcsComponentService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+  </RequiredServiceList>
+  <ExtendedServiceList>
+  </ExtendedServiceList>
+  <Version>
+    <Major>12</Major>
+    <Minor>6</Minor>
+    <Revision>0</Revision>
+    <Build>19606210</Build>
+    <Company>VMware Inc.</Company>
+    <Copyright>Copyright 2015</Copyright>
+    <UserFriendlyVersion>VMware CloudServices PowerCLI Component PowerCLI Component 12.6 build 19606210</UserFriendlyVersion>
+    <Description>Provides test cmdlets.</Description>
+  </Version>
+</ComponentDescriptor>

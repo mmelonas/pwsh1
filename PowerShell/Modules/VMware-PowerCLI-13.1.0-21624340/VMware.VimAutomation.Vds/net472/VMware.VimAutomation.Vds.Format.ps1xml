@@ -1,0 +1,1204 @@
+<Configuration>
+   <ViewDefinitions>
+      <View>
+         <Name>VDSwitch</Name>
+         <ViewSelectedBy>
+            <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDSwitchImpl</TypeName>
+            <TypeName>VMware.VimAutomation.Vds.Impl.V1.VmwareDistributedSwitchImpl</TypeName>
+         </ViewSelectedBy>
+         <TableControl>
+            <TableHeaders>
+               <TableColumnHeader>
+                  <Label>Name</Label>
+                  <Width>30</Width>
+               </TableColumnHeader>
+               <TableColumnHeader>
+                  <Label>NumPorts</Label>
+                  <Width>10</Width>
+               </TableColumnHeader>
+               <TableColumnHeader>
+                  <Label>Mtu</Label>
+                  <Width>10</Width>
+               </TableColumnHeader>
+               <TableColumnHeader>
+                  <Label>Version</Label>
+                  <Width>8</Width>
+               </TableColumnHeader>
+               <TableColumnHeader>
+                  <Label>Vendor</Label>
+                  <Width>20</Width>
+               </TableColumnHeader>
+            </TableHeaders>
+            <TableRowEntries>
+               <TableRowEntry>
+                  <TableColumnItems>
+                     <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                     </TableColumnItem>
+                     <TableColumnItem>
+                        <PropertyName>NumPorts</PropertyName>
+                     </TableColumnItem>
+                     <TableColumnItem>
+                        <PropertyName>Mtu</PropertyName>
+                     </TableColumnItem>
+                     <TableColumnItem>
+                        <PropertyName>Version</PropertyName>
+                     </TableColumnItem>
+                     <TableColumnItem>
+                        <PropertyName>Vendor</PropertyName>
+                     </TableColumnItem>
+                  </TableColumnItems>
+               </TableRowEntry>
+            </TableRowEntries>
+         </TableControl>
+      </View>
+     <View>
+       <Name>VDPortgroup</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDPortgroupImpl</TypeName>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VmwareVDPortgroupImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>Name</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>NumPorts</Label>
+             <Width>8</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>PortBinding</Label>
+             <Width>11</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>Name</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>NumPorts</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>PortBinding</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPort</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDPortImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>Key</Label>
+             <Width>5</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Name</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ConnectedEntity</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Portgroup</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>IsLinkUp</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>MacAddress</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Vlan</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Switch</Label>
+             <Width>13</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>Key</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Name</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ConnectedEntity</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Portgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>IsLinkUp</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>MacAddress</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Vlan</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Switch</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortBlockedPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortBlockedPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPort</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Blocked</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BlockedInherited</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPort</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Blocked</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BlockedInherited</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortgroupBlockedPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortgroupBlockedPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Blocked</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BlockedInherited</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Blocked</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BlockedInherited</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDSwitchBlockedPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDSwitchBlockedPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDSwitch</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Blocked</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BlockedInherited</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDSwitch</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Blocked</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BlockedInherited</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDSwitchSecurityPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDSwitchSecurityPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDSwitch</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>AllowPromiscuous</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>MacChanges</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ForgedTransmits</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDSwitch</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>AllowPromiscuous</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>MacChanges</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ForgedTransmits</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortgroupSecurityPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortgroupSecurityPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>AllowPromiscuous</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>MacChanges</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ForgedTransmits</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>AllowPromiscuous</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>MacChanges</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ForgedTransmits</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortSecurityPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortSecurityPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPort</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>AllowPromiscuous</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>MacChanges</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ForgedTransmits</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPort</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>AllowPromiscuous</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>MacChanges</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ForgedTransmits</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortTrafficShapingPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortTrafficShapingPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPort</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Direction</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Enabled</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>AverageBandwidth</Label>
+             <Width>17</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>PeakBandwidth</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BurstSize</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPort</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Direction</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Enabled</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>AverageBandwidth</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>PeakBandwidth</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BurstSize</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortgroupTrafficShapingPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortgroupTrafficShapingPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Direction</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Enabled</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>AverageBandwidth</Label>
+             <Width>17</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>PeakBandwidth</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BurstSize</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Direction</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Enabled</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>AverageBandwidth</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>PeakBandwidth</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BurstSize</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDSwitchTrafficShapingPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDSwitchTrafficShapingPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDSwitch</Label>
+             <Width>30</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Direction</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Enabled</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>AverageBandwidth</Label>
+             <Width>17</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>PeakBandwidth</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BurstSize</Label>
+             <Width>10</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDSwitch</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Direction</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Enabled</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>AverageBandwidth</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>PeakBandwidth</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BurstSize</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDSwitchUplinkLacpPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDSwitchUplinkLacpPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDSwitch</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Enabled</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Mode</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDSwitch</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Enabled</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Mode</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortUplinkLacpPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortUplinkLacpPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPort</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Enabled</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Mode</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPort</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Enabled</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Mode</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortgroupUplinkLacpPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortgroupUplinkLacpPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Enabled</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>Mode</Label>
+             <Width>7</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Enabled</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>Mode</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortgroupOverridePolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.Policy.VDPortgroupOverridePolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>27</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>BlockOverrideAllowed</Label>
+             <Width>13</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>TrafficShapingOverrideAllowed</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>SecurityOverrideAllowed</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>VlanOverrideAllowed</Label>
+             <Width>12</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>UplinkTeamingOverrideAllowed</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ResetPortConfigAtDisconnect</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>BlockOverrideAllowed</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>TrafficShapingOverrideAllowed</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>SecurityOverrideAllowed</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>VlanOverrideAllowed</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>UplinkTeamingOverrideAllowed</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ResetPortConfigAtDisconnect</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+	 <View>
+       <Name>VDPortUplinkTeamingPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDPortUplinkTeamingPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPort</Label>
+             <Width>6</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>LoadBalancingPolicy</Label>
+             <Width>19</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>FailoverDetectionPolicy</Label>
+             <Width>23</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>NotifySwitches</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>EnableFailback</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ActiveUplinkPort</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>StandbyUplinkPort</Label>
+             <Width>17</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPort</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>LoadBalancingPolicy</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>FailoverDetectionPolicy</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>NotifySwitches</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>EnableFailback</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ActiveUplinkPort</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>StandbyUplinkPort</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDPortgroupUplinkTeamingPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDPortgroupUplinkTeamingPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>LoadBalancingPolicy</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>FailoverDetectionPolicy</Label>
+             <Width>24</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>NotifySwitches</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>EnableFailback</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ActiveUplinkPort</Label>
+             <Width>17</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>LoadBalancingPolicy</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>FailoverDetectionPolicy</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>NotifySwitches</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>EnableFailback</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ActiveUplinkPort</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDSwitchUplinkTeamingPolicy</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDSwitchUplinkTeamingPolicyImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDPortgroup</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>LoadBalancingPolicy</Label>
+             <Width>19</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>FailoverDetectionPolicy</Label>
+             <Width>23</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>NotifySwitches</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>EnableFailback</Label>
+             <Width>14</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>ActiveUplinkPort</Label>
+             <Width>16</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDPortgroup</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>LoadBalancingPolicy</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>FailoverDetectionPolicy</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>NotifySwitches</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>EnableFailback</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>ActiveUplinkPort</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+     <View>
+       <Name>VDSwitchPrivateVlan</Name>
+       <ViewSelectedBy>
+         <TypeName>VMware.VimAutomation.Vds.Impl.V1.VDSwitchPrivateVlanImpl</TypeName>
+       </ViewSelectedBy>
+       <TableControl>
+         <TableHeaders>
+           <TableColumnHeader>
+             <Label>VDSwitch</Label>
+             <Width>20</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>PrivateVlanType</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>PrimaryVlanId</Label>
+             <Width>13</Width>
+           </TableColumnHeader>
+           <TableColumnHeader>
+             <Label>SecondaryVlanId</Label>
+             <Width>15</Width>
+           </TableColumnHeader>
+         </TableHeaders>
+         <TableRowEntries>
+           <TableRowEntry>
+             <TableColumnItems>
+               <TableColumnItem>
+                 <PropertyName>VDSwitch</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>PrivateVlanType</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>PrimaryVlanId</PropertyName>
+               </TableColumnItem>
+               <TableColumnItem>
+                 <PropertyName>SecondaryVlanId</PropertyName>
+               </TableColumnItem>
+             </TableColumnItems>
+           </TableRowEntry>
+         </TableRowEntries>
+       </TableControl>
+     </View>
+   </ViewDefinitions>
+</Configuration>
+
+<!-- SIG # Begin signature block -->
+<!-- MIIohwYJKoZIhvcNAQcCoIIoeDCCKHQCAQExDzANBglghkgBZQMEAgEFADB5Bgor -->
+<!-- BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG -->
+<!-- KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCCrzQNb4MMAT4nY -->
+<!-- 0NRd4Vi7eU5nLqkfiHbVXqr5S2j7iKCCDdowggawMIIEmKADAgECAhAIrUCyYNKc -->
+<!-- TJ9ezam9k67ZMA0GCSqGSIb3DQEBDAUAMGIxCzAJBgNVBAYTAlVTMRUwEwYDVQQK -->
+<!-- EwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xITAfBgNV -->
+<!-- BAMTGERpZ2lDZXJ0IFRydXN0ZWQgUm9vdCBHNDAeFw0yMTA0MjkwMDAwMDBaFw0z -->
+<!-- NjA0MjgyMzU5NTlaMGkxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwg -->
+<!-- SW5jLjFBMD8GA1UEAxM4RGlnaUNlcnQgVHJ1c3RlZCBHNCBDb2RlIFNpZ25pbmcg -->
+<!-- UlNBNDA5NiBTSEEzODQgMjAyMSBDQTEwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAw -->
+<!-- ggIKAoICAQDVtC9C0CiteLdd1TlZG7GIQvUzjOs9gZdwxbvEhSYwn6SOaNhc9es0 -->
+<!-- JAfhS0/TeEP0F9ce2vnS1WcaUk8OoVf8iJnBkcyBAz5NcCRks43iCH00fUyAVxJr -->
+<!-- Q5qZ8sU7H/Lvy0daE6ZMswEgJfMQ04uy+wjwiuCdCcBlp/qYgEk1hz1RGeiQIXhF -->
+<!-- LqGfLOEYwhrMxe6TSXBCMo/7xuoc82VokaJNTIIRSFJo3hC9FFdd6BgTZcV/sk+F -->
+<!-- LEikVoQ11vkunKoAFdE3/hoGlMJ8yOobMubKwvSnowMOdKWvObarYBLj6Na59zHh -->
+<!-- 3K3kGKDYwSNHR7OhD26jq22YBoMbt2pnLdK9RBqSEIGPsDsJ18ebMlrC/2pgVItJ -->
+<!-- wZPt4bRc4G/rJvmM1bL5OBDm6s6R9b7T+2+TYTRcvJNFKIM2KmYoX7BzzosmJQay -->
+<!-- g9Rc9hUZTO1i4F4z8ujo7AqnsAMrkbI2eb73rQgedaZlzLvjSFDzd5Ea/ttQokbI -->
+<!-- YViY9XwCFjyDKK05huzUtw1T0PhH5nUwjewwk3YUpltLXXRhTT8SkXbev1jLchAp -->
+<!-- QfDVxW0mdmgRQRNYmtwmKwH0iU1Z23jPgUo+QEdfyYFQc4UQIyFZYIpkVMHMIRro -->
+<!-- OBl8ZhzNeDhFMJlP/2NPTLuqDQhTQXxYPUez+rbsjDIJAsxsPAxWEQIDAQABo4IB -->
+<!-- WTCCAVUwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUaDfg67Y7+F8Rhvv+ -->
+<!-- YXsIiGX0TkIwHwYDVR0jBBgwFoAU7NfjgtJxXWRM3y5nP+e6mK4cD08wDgYDVR0P -->
+<!-- AQH/BAQDAgGGMBMGA1UdJQQMMAoGCCsGAQUFBwMDMHcGCCsGAQUFBwEBBGswaTAk -->
+<!-- BggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEEGCCsGAQUFBzAC -->
+<!-- hjVodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRUcnVzdGVkUm9v -->
+<!-- dEc0LmNydDBDBgNVHR8EPDA6MDigNqA0hjJodHRwOi8vY3JsMy5kaWdpY2VydC5j -->
+<!-- b20vRGlnaUNlcnRUcnVzdGVkUm9vdEc0LmNybDAcBgNVHSAEFTATMAcGBWeBDAED -->
+<!-- MAgGBmeBDAEEATANBgkqhkiG9w0BAQwFAAOCAgEAOiNEPY0Idu6PvDqZ01bgAhql -->
+<!-- +Eg08yy25nRm95RysQDKr2wwJxMSnpBEn0v9nqN8JtU3vDpdSG2V1T9J9Ce7FoFF -->
+<!-- UP2cvbaF4HZ+N3HLIvdaqpDP9ZNq4+sg0dVQeYiaiorBtr2hSBh+3NiAGhEZGM1h -->
+<!-- mYFW9snjdufE5BtfQ/g+lP92OT2e1JnPSt0o618moZVYSNUa/tcnP/2Q0XaG3Ryw -->
+<!-- YFzzDaju4ImhvTnhOE7abrs2nfvlIVNaw8rpavGiPttDuDPITzgUkpn13c5Ubdld -->
+<!-- AhQfQDN8A+KVssIhdXNSy0bYxDQcoqVLjc1vdjcshT8azibpGL6QB7BDf5WIIIJw -->
+<!-- 8MzK7/0pNVwfiThV9zeKiwmhywvpMRr/LhlcOXHhvpynCgbWJme3kuZOX956rEnP -->
+<!-- LqR0kq3bPKSchh/jwVYbKyP/j7XqiHtwa+aguv06P0WmxOgWkVKLQcBIhEuWTatE -->
+<!-- QOON8BUozu3xGFYHKi8QxAwIZDwzj64ojDzLj4gLDb879M4ee47vtevLt/B3E+bn -->
+<!-- KD+sEq6lLyJsQfmCXBVmzGwOysWGw/YmMwwHS6DTBwJqakAwSEs0qFEgu60bhQji -->
+<!-- WQ1tygVQK+pKHJ6l/aCnHwZ05/LWUpD9r4VIIflXO7ScA+2GRfS0YW6/aOImYIbq -->
+<!-- yK+p/pQd52MbOoZWeE4wggciMIIFCqADAgECAhAOxvKydqFGoH0ObZNXteEIMA0G -->
+<!-- CSqGSIb3DQEBCwUAMGkxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwg -->
+<!-- SW5jLjFBMD8GA1UEAxM4RGlnaUNlcnQgVHJ1c3RlZCBHNCBDb2RlIFNpZ25pbmcg -->
+<!-- UlNBNDA5NiBTSEEzODQgMjAyMSBDQTEwHhcNMjEwODEwMDAwMDAwWhcNMjMwODEw -->
+<!-- MjM1OTU5WjCBhzELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExEjAQ -->
+<!-- BgNVBAcTCVBhbG8gQWx0bzEVMBMGA1UEChMMVk13YXJlLCBJbmMuMRUwEwYDVQQD -->
+<!-- EwxWTXdhcmUsIEluYy4xITAfBgkqhkiG9w0BCQEWEm5vcmVwbHlAdm13YXJlLmNv -->
+<!-- bTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMD6lJG8OWkM12huIQpO -->
+<!-- /q9JnhhhW5UyW9if3/UnoFY3oqmp0JYX/ZrXogUHYXmbt2gk01zz2P5Z89mM4gqR -->
+<!-- bGYC2tx+Lez4GxVkyslVPI3PXYcYSaRp39JsF3yYifnp9R+ON8O3Gf5/4EaFmbeT -->
+<!-- ElDCFBfExPMqtSvPZDqekodzX+4SK1PIZxCyR3gml8R3/wzhb6Li0mG7l0evQUD0 -->
+<!-- FQAbKJMlBk863apeX4ALFZtrnCpnMlOjRb85LsjV5Ku4OhxQi1jlf8wR+za9C3DU -->
+<!-- ki60/yiWPu+XXwEUqGInIihECBbp7hfFWrnCCaOgahsVpgz8kKg/XN4OFq7rbh4q -->
+<!-- 5IkTauqFhHaE7HKM5bbIBkZ+YJs2SYvu7aHjw4Z8aRjaIbXhI1G+NtaNY7kSRrE4 -->
+<!-- fAyC2X2zV5i4a0AuAMM40C1Wm3gTaNtRTHnka/pbynUlFjP+KqAZhOniJg4AUfjX -->
+<!-- sG+PG1LH2+w/sfDl1A8liXSZU1qJtUs3wBQFoSGEaGBeDQIDAQABo4ICJTCCAiEw -->
+<!-- HwYDVR0jBBgwFoAUaDfg67Y7+F8Rhvv+YXsIiGX0TkIwHQYDVR0OBBYEFIhC+HL9 -->
+<!-- QlvsWsztP/I5wYwdfCFNMB0GA1UdEQQWMBSBEm5vcmVwbHlAdm13YXJlLmNvbTAO -->
+<!-- BgNVHQ8BAf8EBAMCB4AwEwYDVR0lBAwwCgYIKwYBBQUHAwMwgbUGA1UdHwSBrTCB -->
+<!-- qjBToFGgT4ZNaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0VHJ1c3Rl -->
+<!-- ZEc0Q29kZVNpZ25pbmdSU0E0MDk2U0hBMzg0MjAyMUNBMS5jcmwwU6BRoE+GTWh0 -->
+<!-- dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFRydXN0ZWRHNENvZGVTaWdu -->
+<!-- aW5nUlNBNDA5NlNIQTM4NDIwMjFDQTEuY3JsMD4GA1UdIAQ3MDUwMwYGZ4EMAQQB -->
+<!-- MCkwJwYIKwYBBQUHAgEWG2h0dHA6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzCBlAYI -->
+<!-- KwYBBQUHAQEEgYcwgYQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0 -->
+<!-- LmNvbTBcBggrBgEFBQcwAoZQaHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL0Rp -->
+<!-- Z2lDZXJ0VHJ1c3RlZEc0Q29kZVNpZ25pbmdSU0E0MDk2U0hBMzg0MjAyMUNBMS5j -->
+<!-- cnQwDAYDVR0TAQH/BAIwADANBgkqhkiG9w0BAQsFAAOCAgEACQAYaQI6Nt2KgxdN -->
+<!-- 6qqfcHB33EZRSXkvs8O9iPZkdDjEx+2fgbBPLUvk9A7T8mRw7brbcJv4PLTYJDFo -->
+<!-- c5mlcmG7/5zwTOuIs2nBGXc/uxCnyW8p7kD4Y0JxPKEVQoIQ8lJS9Uy/hBjyakeV -->
+<!-- ef982JyzvDbOlLBy6AS3ZpXVkRY5y3Va+3v0R/0xJ+JRxUicQhiZRidq2TCiWEas -->
+<!-- d+tLL6jrKaBO+rmP52IM4eS9d4Yids7ogKEBAlJi0NbvuKO0CkgOlFjp1tOvD4sQ -->
+<!-- taHIMmqi40p4Tjyf/sY6yGjROXbMeeF1vlwbBAASPWpQuEIxrNHoVN30YfJyuOWj -->
+<!-- zdiJUTpeLn9XdjM3UlhfaHP+oIAKcmkd33c40SFRlQG9+P9Wlm7TcPxGU4wzXI8n -->
+<!-- Cw/h235jFlAAiWq9L2r7Un7YduqsheJVpGoXmRXJH0T2G2eNFS5/+2sLn98kN2Cn -->
+<!-- J7j6C242onjkZuGL2/+gqx8m5Jbpu9P4IAeTC1He/mX9j6XpIu+7uBoRVwuWD1i0 -->
+<!-- N5SiUz7Lfnbr6Q1tHMXKDLFdwVKZos2AKEZhv4SU0WvenMJKDgkkhVeHPHbTahQf -->
+<!-- P1MetR8tdRs7uyTWAjPK5xf5DLEkXbMrUkpJ089fPvAGVHBcHRMqFA5egexOb6sj -->
+<!-- tKncUjJ1xAAtAExGdCh6VD2U5iYxghoDMIIZ/wIBATB9MGkxCzAJBgNVBAYTAlVT -->
+<!-- MRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjFBMD8GA1UEAxM4RGlnaUNlcnQgVHJ1 -->
+<!-- c3RlZCBHNCBDb2RlIFNpZ25pbmcgUlNBNDA5NiBTSEEzODQgMjAyMSBDQTECEA7G -->
+<!-- 8rJ2oUagfQ5tk1e14QgwDQYJYIZIAWUDBAIBBQCggZYwGQYJKoZIhvcNAQkDMQwG -->
+<!-- CisGAQQBgjcCAQQwHAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARUwKgYKKwYB -->
+<!-- BAGCNwIBDDEcMBqhGIAWaHR0cDovL3d3dy52bXdhcmUuY29tLzAvBgkqhkiG9w0B -->
+<!-- CQQxIgQglB4zWp7yL8p6B2AcyRCxQS1GQqVnNwKSslI+Fq/A3DUwDQYJKoZIhvcN -->
+<!-- AQEBBQAEggGAfArioB50lKA5rp9NUNugF2wVwKhtIXgwOW2aDNO3eKos4kd73hDp -->
+<!-- xmWdJcjA2eR0Jd9lYNEYbuvhmRPfgyI4cvc2ITuxEsG6k3fNStKIXV3B9zyfyUbl -->
+<!-- 3pXIFncua6WpW9lVl9wlmXGDsW6fvpnKcFwx7sW+6WqoioxMoBH3sYDbC/Ld0lh/ -->
+<!-- jJjwqZ8jWqPAuXLwLQCjKBQ76zvn5R3KB1pEqu/gxHejHend8731+7hEQcbyiS7v -->
+<!-- Xo6s/ehhHMlgmF1O3bj25f5tgFHGtaWaLl4hl2sMQufSCbfYa5CmoOD7xyG34Ms2 -->
+<!-- Qmq2cWu1tQ2Z0CuXJ7AKDTUqIhkbrDvOhQ71+wrAPh08n14CMEkVsomPZ8wcyugs -->
+<!-- wyGKY+LX6PwxO1U5EK6vijDusn1baLEbWTu2uUB5kA0J7cV2UFNmQQZud7Bq0hmn -->
+<!-- qRL1S8EUtK+DpfyvNpJNXfwi6OsId2FPQUa8Mr8xLOHbzbc82trbwvV2pKal6KZM -->
+<!-- YYAeZv8LPHCwoYIXPjCCFzoGCisGAQQBgjcDAwExghcqMIIXJgYJKoZIhvcNAQcC -->
+<!-- oIIXFzCCFxMCAQMxDzANBglghkgBZQMEAgEFADB4BgsqhkiG9w0BCRABBKBpBGcw -->
+<!-- ZQIBAQYJYIZIAYb9bAcBMDEwDQYJYIZIAWUDBAIBBQAEIOFI5SOJXEXi/IEpFRA8 -->
+<!-- O6z1oHbTT7HdZmbE9tlZI6ilAhEA1tzg8c7ubpN+sUV56U+AOxgPMjAyMzA0MTUy -->
+<!-- MzA0NDBaoIITBzCCBsAwggSooAMCAQICEAxNaXJLlPo8Kko9KQeAPVowDQYJKoZI -->
+<!-- hvcNAQELBQAwYzELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMu -->
+<!-- MTswOQYDVQQDEzJEaWdpQ2VydCBUcnVzdGVkIEc0IFJTQTQwOTYgU0hBMjU2IFRp -->
+<!-- bWVTdGFtcGluZyBDQTAeFw0yMjA5MjEwMDAwMDBaFw0zMzExMjEyMzU5NTlaMEYx -->
+<!-- CzAJBgNVBAYTAlVTMREwDwYDVQQKEwhEaWdpQ2VydDEkMCIGA1UEAxMbRGlnaUNl -->
+<!-- cnQgVGltZXN0YW1wIDIwMjIgLSAyMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIIC -->
+<!-- CgKCAgEAz+ylJjrGqfJru43BDZrboegUhXQzGias0BxVHh42bbySVQxh9J0Jdz0V -->
+<!-- lggva2Sk/QaDFteRkjgcMQKW+3KxlzpVrzPsYYrppijbkGNcvYlT4DotjIdCriak -->
+<!-- 5Lt4eLl6FuFWxsC6ZFO7KhbnUEi7iGkMiMbxvuAvfTuxylONQIMe58tySSgeTIAe -->
+<!-- hVbnhe3yYbyqOgd99qtu5Wbd4lz1L+2N1E2VhGjjgMtqedHSEJFGKes+JvK0jM1M -->
+<!-- uWbIu6pQOA3ljJRdGVq/9XtAbm8WqJqclUeGhXk+DF5mjBoKJL6cqtKctvdPbnjE -->
+<!-- KD+jHA9QBje6CNk1prUe2nhYHTno+EyREJZ+TeHdwq2lfvgtGx/sK0YYoxn2Off1 -->
+<!-- wU9xLokDEaJLu5i/+k/kezbvBkTkVf826uV8MefzwlLE5hZ7Wn6lJXPbwGqZIS1j -->
+<!-- 5Vn1TS+QHye30qsU5Thmh1EIa/tTQznQZPpWz+D0CuYUbWR4u5j9lMNzIfMvwi4g -->
+<!-- 14Gs0/EH1OG92V1LbjGUKYvmQaRllMBY5eUuKZCmt2Fk+tkgbBhRYLqmgQ8JJVPx -->
+<!-- vzvpqwcOagc5YhnJ1oV/E9mNec9ixezhe7nMZxMHmsF47caIyLBuMnnHC1mDjcbu -->
+<!-- 9Sx8e47LZInxscS451NeX1XSfRkpWQNO+l3qRXMchH7XzuLUOncCAwEAAaOCAYsw -->
+<!-- ggGHMA4GA1UdDwEB/wQEAwIHgDAMBgNVHRMBAf8EAjAAMBYGA1UdJQEB/wQMMAoG -->
+<!-- CCsGAQUFBwMIMCAGA1UdIAQZMBcwCAYGZ4EMAQQCMAsGCWCGSAGG/WwHATAfBgNV -->
+<!-- HSMEGDAWgBS6FtltTYUvcyl2mi91jGogj57IbzAdBgNVHQ4EFgQUYore0GH8jzEU -->
+<!-- 7ZcLzT0qlBTfUpwwWgYDVR0fBFMwUTBPoE2gS4ZJaHR0cDovL2NybDMuZGlnaWNl -->
+<!-- cnQuY29tL0RpZ2lDZXJ0VHJ1c3RlZEc0UlNBNDA5NlNIQTI1NlRpbWVTdGFtcGlu -->
+<!-- Z0NBLmNybDCBkAYIKwYBBQUHAQEEgYMwgYAwJAYIKwYBBQUHMAGGGGh0dHA6Ly9v -->
+<!-- Y3NwLmRpZ2ljZXJ0LmNvbTBYBggrBgEFBQcwAoZMaHR0cDovL2NhY2VydHMuZGln -->
+<!-- aWNlcnQuY29tL0RpZ2lDZXJ0VHJ1c3RlZEc0UlNBNDA5NlNIQTI1NlRpbWVTdGFt -->
+<!-- cGluZ0NBLmNydDANBgkqhkiG9w0BAQsFAAOCAgEAVaoqGvNG83hXNzD8deNP1oUj -->
+<!-- 8fz5lTmbJeb3coqYw3fUZPwV+zbCSVEseIhjVQlGOQD8adTKmyn7oz/AyQCbEx2w -->
+<!-- mIncePLNfIXNU52vYuJhZqMUKkWHSphCK1D8G7WeCDAJ+uQt1wmJefkJ5ojOfRu4 -->
+<!-- aqKbwVNgCeijuJ3XrR8cuOyYQfD2DoD75P/fnRCn6wC6X0qPGjpStOq/CUkVNTZZ -->
+<!-- mg9U0rIbf35eCa12VIp0bcrSBWcrduv/mLImlTgZiEQU5QpZomvnIj5EIdI/HMCb -->
+<!-- 7XxIstiSDJFPPGaUr10CU+ue4p7k0x+GAWScAMLpWnR1DT3heYi/HAGXyRkjgNc2 -->
+<!-- Wl+WFrFjDMZGQDvOXTXUWT5Dmhiuw8nLw/ubE19qtcfg8wXDWd8nYiveQclTuf80 -->
+<!-- EGf2JjKYe/5cQpSBlIKdrAqLxksVStOYkEVgM4DgI974A6T2RUflzrgDQkfoQTZx -->
+<!-- d639ouiXdE4u2h4djFrIHprVwvDGIqhPm73YHJpRxC+a9l+nJ5e6li6FV8Bg53hW -->
+<!-- f2rvwpWaSxECyIKcyRoFfLpxtU56mWz06J7UWpjIn7+NuxhcQ/XQKujiYu54BNu9 -->
+<!-- 0ftbCqhwfvCXhHjjCANdRyxjqCU4lwHSPzra5eX25pvcfizM/xdMTQCi2NYBDriL -->
+<!-- 7ubgclWJLCcZYfZ3AYwwggauMIIElqADAgECAhAHNje3JFR82Ees/ShmKl5bMA0G -->
+<!-- CSqGSIb3DQEBCwUAMGIxCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJ -->
+<!-- bmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xITAfBgNVBAMTGERpZ2lDZXJ0 -->
+<!-- IFRydXN0ZWQgUm9vdCBHNDAeFw0yMjAzMjMwMDAwMDBaFw0zNzAzMjIyMzU5NTla -->
+<!-- MGMxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE7MDkGA1UE -->
+<!-- AxMyRGlnaUNlcnQgVHJ1c3RlZCBHNCBSU0E0MDk2IFNIQTI1NiBUaW1lU3RhbXBp -->
+<!-- bmcgQ0EwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDGhjUGSbPBPXJJ -->
+<!-- UVXHJQPE8pE3qZdRodbSg9GeTKJtoLDMg/la9hGhRBVCX6SI82j6ffOciQt/nR+e -->
+<!-- DzMfUBMLJnOWbfhXqAJ9/UO0hNoR8XOxs+4rgISKIhjf69o9xBd/qxkrPkLcZ47q -->
+<!-- UT3w1lbU5ygt69OxtXXnHwZljZQp09nsad/ZkIdGAHvbREGJ3HxqV3rwN3mfXazL -->
+<!-- 6IRktFLydkf3YYMZ3V+0VAshaG43IbtArF+y3kp9zvU5EmfvDqVjbOSmxR3NNg1c -->
+<!-- 1eYbqMFkdECnwHLFuk4fsbVYTXn+149zk6wsOeKlSNbwsDETqVcplicu9Yemj052 -->
+<!-- FVUmcJgmf6AaRyBD40NjgHt1biclkJg6OBGz9vae5jtb7IHeIhTZgirHkr+g3uM+ -->
+<!-- onP65x9abJTyUpURK1h0QCirc0PO30qhHGs4xSnzyqqWc0Jon7ZGs506o9UD4L/w -->
+<!-- ojzKQtwYSH8UNM/STKvvmz3+DrhkKvp1KCRB7UK/BZxmSVJQ9FHzNklNiyDSLFc1 -->
+<!-- eSuo80VgvCONWPfcYd6T/jnA+bIwpUzX6ZhKWD7TA4j+s4/TXkt2ElGTyYwMO1uK -->
+<!-- IqjBJgj5FBASA31fI7tk42PgpuE+9sJ0sj8eCXbsq11GdeJgo1gJASgADoRU7s7p -->
+<!-- XcheMBK9Rp6103a50g5rmQzSM7TNsQIDAQABo4IBXTCCAVkwEgYDVR0TAQH/BAgw -->
+<!-- BgEB/wIBADAdBgNVHQ4EFgQUuhbZbU2FL3MpdpovdYxqII+eyG8wHwYDVR0jBBgw -->
+<!-- FoAU7NfjgtJxXWRM3y5nP+e6mK4cD08wDgYDVR0PAQH/BAQDAgGGMBMGA1UdJQQM -->
+<!-- MAoGCCsGAQUFBwMIMHcGCCsGAQUFBwEBBGswaTAkBggrBgEFBQcwAYYYaHR0cDov -->
+<!-- L29jc3AuZGlnaWNlcnQuY29tMEEGCCsGAQUFBzAChjVodHRwOi8vY2FjZXJ0cy5k -->
+<!-- aWdpY2VydC5jb20vRGlnaUNlcnRUcnVzdGVkUm9vdEc0LmNydDBDBgNVHR8EPDA6 -->
+<!-- MDigNqA0hjJodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRUcnVzdGVk -->
+<!-- Um9vdEc0LmNybDAgBgNVHSAEGTAXMAgGBmeBDAEEAjALBglghkgBhv1sBwEwDQYJ -->
+<!-- KoZIhvcNAQELBQADggIBAH1ZjsCTtm+YqUQiAX5m1tghQuGwGC4QTRPPMFPOvxj7 -->
+<!-- x1Bd4ksp+3CKDaopafxpwc8dB+k+YMjYC+VcW9dth/qEICU0MWfNthKWb8RQTGId -->
+<!-- DAiCqBa9qVbPFXONASIlzpVpP0d3+3J0FNf/q0+KLHqrhc1DX+1gtqpPkWaeLJ7g -->
+<!-- iqzl/Yy8ZCaHbJK9nXzQcAp876i8dU+6WvepELJd6f8oVInw1YpxdmXazPByoyP6 -->
+<!-- wCeCRK6ZJxurJB4mwbfeKuv2nrF5mYGjVoarCkXJ38SNoOeY+/umnXKvxMfBwWpx -->
+<!-- 2cYTgAnEtp/Nh4cku0+jSbl3ZpHxcpzpSwJSpzd+k1OsOx0ISQ+UzTl63f8lY5kn -->
+<!-- LD0/a6fxZsNBzU+2QJshIUDQtxMkzdwdeDrknq3lNHGS1yZr5Dhzq6YBT70/O3it -->
+<!-- TK37xJV77QpfMzmHQXh6OOmc4d0j/R0o08f56PGYX/sr2H7yRp11LB4nLCbbbxV7 -->
+<!-- HhmLNriT1ObyF5lZynDwN7+YAN8gFk8n+2BnFqFmut1VwDophrCYoCvtlUG3OtUV -->
+<!-- mDG0YgkPCr2B2RP+v6TR81fZvAT6gt4y3wSJ8ADNXcL50CN/AAvkdgIm2fBldkKm -->
+<!-- KYcJRyvmfxqkhQ/8mJb2VVQrH4D6wPIOK+XW+6kvRBVK5xMOHds3OBqhK/bt1nz8 -->
+<!-- MIIFjTCCBHWgAwIBAgIQDpsYjvnQLefv21DiCEAYWjANBgkqhkiG9w0BAQwFADBl -->
+<!-- MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3 -->
+<!-- d3cuZGlnaWNlcnQuY29tMSQwIgYDVQQDExtEaWdpQ2VydCBBc3N1cmVkIElEIFJv -->
+<!-- b3QgQ0EwHhcNMjIwODAxMDAwMDAwWhcNMzExMTA5MjM1OTU5WjBiMQswCQYDVQQG -->
+<!-- EwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNl -->
+<!-- cnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBUcnVzdGVkIFJvb3QgRzQwggIiMA0G -->
+<!-- CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC/5pBzaN675F1KPDAiMGkz7MKnJS7J -->
+<!-- IT3yithZwuEppz1Yq3aaza57G4QNxDAf8xukOBbrVsaXbR2rsnnyyhHS5F/WBTxS -->
+<!-- D1Ifxp4VpX6+n6lXFllVcq9ok3DCsrp1mWpzMpTREEQQLt+C8weE5nQ7bXHiLQwb -->
+<!-- 7iDVySAdYyktzuxeTsiT+CFhmzTrBcZe7FsavOvJz82sNEBfsXpm7nfISKhmV1ef -->
+<!-- VFiODCu3T6cw2Vbuyntd463JT17lNecxy9qTXtyOj4DatpGYQJB5w3jHtrHEtWoY -->
+<!-- OAMQjdjUN6QuBX2I9YI+EJFwq1WCQTLX2wRzKm6RAXwhTNS8rhsDdV14Ztk6MUSa -->
+<!-- M0C/CNdaSaTC5qmgZ92kJ7yhTzm1EVgX9yRcRo9k98FpiHaYdj1ZXUJ2h4mXaXpI -->
+<!-- 8OCiEhtmmnTK3kse5w5jrubU75KSOp493ADkRSWJtppEGSt+wJS00mFt6zPZxd9L -->
+<!-- BADMfRyVw4/3IbKyEbe7f/LVjHAsQWCqsWMYRJUadmJ+9oCw++hkpjPRiQfhvbfm -->
+<!-- Q6QYuKZ3AeEPlAwhHbJUKSWJbOUOUlFHdL4mrLZBdd56rF+NP8m800ERElvlEFDr -->
+<!-- McXKchYiCd98THU/Y+whX8QgUWtvsauGi0/C1kVfnSD8oR7FwI+isX4KJpn15Gkv -->
+<!-- mB0t9dmpsh3lGwIDAQABo4IBOjCCATYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4E -->
+<!-- FgQU7NfjgtJxXWRM3y5nP+e6mK4cD08wHwYDVR0jBBgwFoAUReuir/SSy4IxLVGL -->
+<!-- p6chnfNtyA8wDgYDVR0PAQH/BAQDAgGGMHkGCCsGAQUFBwEBBG0wazAkBggrBgEF -->
+<!-- BQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMGCCsGAQUFBzAChjdodHRw -->
+<!-- Oi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkSURSb290Q0Eu -->
+<!-- Y3J0MEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9E -->
+<!-- aWdpQ2VydEFzc3VyZWRJRFJvb3RDQS5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0G -->
+<!-- CSqGSIb3DQEBDAUAA4IBAQBwoL9DXFXnOF+go3QbPbYW1/e/Vwe9mqyhhyzshV6p -->
+<!-- Grsi+IcaaVQi7aSId229GhT0E0p6Ly23OO/0/4C5+KH38nLeJLxSA8hO0Cre+i1W -->
+<!-- z/n096wwepqLsl7Uz9FDRJtDIeuWcqFItJnLnU+nBgMTdydE1Od/6Fmo8L8vC6bp -->
+<!-- 8jQ87PcDx4eo0kxAGTVGamlUsLihVo7spNU96LHc/RzY9HdaXFSMb++hUD38dglo -->
+<!-- hJ9vytsgjTVgHAIDyyCwrFigDkBjxZgiwbJZ9VVrzyerbHbObyMt9H5xaiNrIv8S -->
+<!-- uFQtJ37YOtnwtoeW/VvRXKwYw02fc7cBqZ9Xql4o4rmUMYIDdjCCA3ICAQEwdzBj -->
+<!-- MQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xOzA5BgNVBAMT -->
+<!-- MkRpZ2lDZXJ0IFRydXN0ZWQgRzQgUlNBNDA5NiBTSEEyNTYgVGltZVN0YW1waW5n -->
+<!-- IENBAhAMTWlyS5T6PCpKPSkHgD1aMA0GCWCGSAFlAwQCAQUAoIHRMBoGCSqGSIb3 -->
+<!-- DQEJAzENBgsqhkiG9w0BCRABBDAcBgkqhkiG9w0BCQUxDxcNMjMwNDE1MjMwNDQw -->
+<!-- WjArBgsqhkiG9w0BCRACDDEcMBowGDAWBBTzhyJNhjOCkjWplLy9j5bp/hx8czAv -->
+<!-- BgkqhkiG9w0BCQQxIgQgWSshuPqRe790x9foqW0zAAXq7yhy8ohP996UNFjy6gYw -->
+<!-- NwYLKoZIhvcNAQkQAi8xKDAmMCQwIgQgx/ThvjIoiSCr4iY6vhrE/E/meBwtZNBM -->
+<!-- gHVXoCO1tvowDQYJKoZIhvcNAQEBBQAEggIAhuzsHcfCd+7Nsxj5rAzdVLxGKx90 -->
+<!-- 5gPWsUTNrFlfX4WMtFR08PUMBowR9Cz4llJcyyeYI3rSripjPORPZfMi27ywHhT9 -->
+<!-- q9bz+bpvji018rrj2G35gGuBGYLAsqjuSZB1P+5xYKXlylLDx4TvWXSrkhRjVp0P -->
+<!-- 1p/qybdXKe02kxuMGHGsXoKJREg7tJWtyvxpH5Q5JhpYqJQZz6eTMXnLDaFn0Yc+ -->
+<!-- uJAaNWgtxHLbc5lqpld+QHqPB3Hmns1Kfio73xyDSzoUJOM1eXJOGmq7i7kHaV03 -->
+<!-- WSV71RPl2zUp/DtnGkAQaK9XI69kmwN7UvS/tlbB1DWeglEyRL6j89qr6XWYw7CK -->
+<!-- 0/2wtLV/bnuPs1M+vHh8pt9t2DbneCSd/0Yqj0SOFMoHXDvfkYGUhGtrj4Uk2PdB -->
+<!-- FtCoYXbStPjqmSIdtSdyXKzWz+dSAEr6ytmAkL6Oa6aSVsMfd1nf2xc4XwI1C6zF -->
+<!-- jCxbYdo8aILJZnM/V2z/w3S/F5SKKnj4liox/0QPyj7xCpYNbgBeSPMOMgdGAsjv -->
+<!-- rRGSg/ZDpDJmDqo5j4BUjn+d+j+91YE5i84TpByb/KCkzlro7wzUsnw+bsHwTCar -->
+<!-- +jfKEaZXGHo1/xnpzg6bOyI0EMWhn/RvlKXD9zHQKmdD8HZCc/tKVrBSYBos2X4h -->
+<!-- E8LhdUFPNcwB4A4= -->
+<!-- SIG # End signature block -->

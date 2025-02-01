@@ -1,0 +1,6 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.License.Commands" Version="12.0.0.15939670" />
+   <Package Id="VMware.VimAutomation.License.Impl" Version="12.0.0.15939670" />
+   <Package Id="VMware.VimAutomation.License.Interop" Version="12.0.0.15939670" />
+   <Package Id="VMware.VimAutomation.License.Types" Version="12.0.0.15939670" />
+</ModulePackages>

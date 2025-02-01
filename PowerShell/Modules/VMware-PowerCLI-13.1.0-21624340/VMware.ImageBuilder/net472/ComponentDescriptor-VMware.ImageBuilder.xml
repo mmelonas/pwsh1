@@ -1,0 +1,26 @@
+<ComponentDescriptor>
+  <Name>VMware.ImageBuilder</Name>
+  <Assembly>VMware.ImageBuilder.Cmdlets</Assembly>
+  <ImplementingType>VMware.ImageBuilder.Commands.ImageBuilderCmdletsComponentImpl</ImplementingType>
+  <IsSnapin>true</IsSnapin>
+  <ProvidedServiceList>
+  </ProvidedServiceList>
+  <RequiredServiceList>
+    <ServiceDescriptor>
+      <Name>ViCoreService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+  </RequiredServiceList>
+  <ExtendedServiceList>
+  </ExtendedServiceList>
+  <Version>
+    <Major>8</Major>
+    <Minor>0</Minor>
+    <Revision>0</Revision>
+    <Build>21610262</Build>
+    <Company>VMware Inc.</Company>
+    <Copyright>Copyright 2011</Copyright>
+    <UserFriendlyVersion>VMware Image Builder PowerCLI Component PowerCLI Component 8.0 build 21610262</UserFriendlyVersion>
+    <Description>Provides cmdlets for building ESXi images.</Description>
+  </Version>
+</ComponentDescriptor>

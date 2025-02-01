@@ -1,0 +1,7 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.Hcx.Commands" Version="13.0.0.20803747" />
+   <Package Id="VMware.VimAutomation.Hcx.Impl" Version="13.0.0.20803747" />
+   <Package Id="VMware.VimAutomation.Hcx.Interop" Version="13.0.0.20803747" />
+   <Package Id="VMware.VimAutomation.Hcx.Types" Version="13.0.0.20803747" />
+   <Package Id="VMware.Hcx.Client.Bindings" Version="13.0.0.20803747" />
+</ModulePackages>

@@ -1,0 +1,6 @@
+<ModulePackages>
+   <Package Id="VMware.CloudServices.Impl" Version="12.6.0.19606210" />
+   <Package Id="VMware.CloudServices.Interop" Version="12.6.0.19606210" />
+   <Package Id="VMware.CloudServices.Types" Version="12.6.0.19606210" />
+   <Package Id="VMware.CloudServices.Commands" Version="12.6.0.19606210" />
+</ModulePackages>
