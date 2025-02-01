@@ -6,7 +6,9 @@ After cloning this repository to get successfully started up you need:
 
 2. PowerShell installed, which is only needed to be installed on Linux systems.
 
-3. run the ./jedi/PowerShell/PS1Scripts/Start-MyApps.ps1 script
+3. Check the Set-MyVariables PowerShell variables for credentials and servers you may want to manually input.
+
+4. run the ./jedi/PowerShell/PS1Scripts/Start-MyApps.ps1 script
 ---
 **NOTE**
         
@@ -18,7 +20,7 @@ After cloning this repository to get successfully started up you need:
         You can adapt to this File Hierarchy schema, or modify the script with what you want.
 ---
 
-4. After running through all of the steps displayed in the Start-MyApps PowerShell script
+5. After running through all of the steps displayed in the Start-MyApps PowerShell script
    you should be connected to vSphere, Horizon View, and able to use the customized cmd-lets
    found in the MyHCL.Automation.psm1 PowerShell Module.
 

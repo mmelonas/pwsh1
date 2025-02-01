@@ -469,7 +469,7 @@ function GoTo-HCL-DC1 {
 
 #>
 
-    Enter-PSSession hcl-dc01.hcl.lmco.com -Credential $da_creds
+    Enter-PSSession $PrimaryDC -Credential $da_creds
 
 }#End GoTo-HCL-DC1
 
@@ -496,7 +496,7 @@ function GoTo-HCL-DC2 {
 
 #>
 
-    Enter-PSSession ahcl0uv-dc00002.hcl.lmco.com -Credential $da_creds
+    Enter-PSSession $SecondaryDC -Credential $da_creds
 
 }#End GoTo-HCL-DC2
 
@@ -523,7 +523,7 @@ function GoTo-HCL-vSphere {
 
 #>
 
-    Connect-VIServer -Server vcsv01.hcl.lmco.com -Credential $ms_creds
+    Connect-VIServer -Server $vSphere -Credential $ms_creds
 
 }#End GoTo-HCL-vSphere
 
@@ -550,7 +550,7 @@ function GoTo-HCL-HorizonView {
 
 #>
 
-    Connect-HVServer ahcl0uv-hzn0001.hcl.lmco.com -Credential $ms_creds
+    Connect-HVServer $HVServer -Credential $ms_creds
 
 }#End GoTo-HCL-HorizonView
 
@@ -1247,12 +1247,23 @@ function Set-MyVariables {
     Write-Host ""
     Pause
 
-    #
+    # Manually set variables to what you want here if you wish (or DARE . . .)
+
     $global:MyVM       = (hostname)
     $global:dausername = Read-Host -Prompt "Enter Domain Admin username" 
-    $global:da_creds   = Get-Credential -Message "Enter the Domain Admin Password" -UserName ($dausername + "@hcl.lmco.com")
+    $global:da_creds   = Get-Credential -Message "Enter the Domain Admin Password" -UserName ($dausername + '@' + $env:USERDNSDOMAIN)
     $global:msusername = Read-Host -Prompt "Enter Member Server Admin username" 
-    $global:ms_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($msusername + "@hcl.lmco.com")
+    $global:ms_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($msusername + '@' + $env:USERDNSDOMAIN)
+    $global:wausername = Read-Host -Prompt "Enter Workstation Admin username" 
+    $global:wa_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($wausername + '@' + $env:USERDNSDOMAIN)
+    $global:First_DC   = Read-Host -Prompt "Enter the Primary Domain Server Name" 
+    $global:PrimaryDC  = $First_DC + '@' + $env:USERDNSDOMAIN
+    $global:Second_DC  = Read-Host -Prompt "Enter the Primary Domain Server Name" 
+    $global:SecondaryDC= $Second_DC + '@' + $env:USERDNSDOMAIN
+    $global:vSphereSRV = Read-Host -Prompt "Enter the vSphere Server Name" 
+    $global:vSphere    = $vSphereSRV + '@' + $env:USERDNSDOMAIN
+    $global:HorizenView= Read-Host -Prompt "Enter the Horizon View Server Name" 
+    $global:HVServer   = $HorizenView + '@' + $env:USERDNSDOMAIN
     #>
 
     <# My admin creds vars.
