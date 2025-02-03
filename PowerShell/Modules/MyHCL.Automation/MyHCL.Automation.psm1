@@ -1922,7 +1922,7 @@ function notify-account-expiration {
         $body = "
     Hello!
 
-    You are receiving this email because your MASC-F accounts will be expiring on $35days. You are a valued team member, and we want to make sure you can continue doing great work for the MASC-F team.
+    You are receiving this email because your MyCompany accounts will be expiring on $35days. You are a valued team member, and we want to make sure you can continue doing great work for the MyCompany team.
 
     Please check with your company's FSO to verify that your Visitor Access Request (VAR) is renewed before $35days.
 
@@ -1933,7 +1933,7 @@ function notify-account-expiration {
         $mailParam = @{
             To = "$EmailAddress"
             From = "hcl-admin@hcl.lmco.com"
-            Subject = 'MASC-F Account Expiring Soon'
+            Subject = 'MyCompany Account Expiring Soon'
             body = $body
             SmtpServer = $smtpServer
         }
@@ -1946,9 +1946,9 @@ function notify-account-expiration {
 
     if ((Test-Path -Path "$localfolder\$date-var-expiration-dates.csv") -eq $true) {
         $mailParamAdmins = @{
-            To = "masc-f_systemteam.dl-rms@exch.ems.lmco.com"
+            To = "MyCompany_systemteam.dl-rms@exch.ems.lmco.com"
             From = "hcl-admin@hcl.lmco.com"
-            Subject = 'MASC-F Account Expiration Dates Report'
+            Subject = 'MyCompany Account Expiration Dates Report'
             body = 'Please see attached report of upcoming account expirations.'
             SmtpServer = $smtpServer
             Attachments = "$localfolder\$date-var-expiration-dates.csv"
