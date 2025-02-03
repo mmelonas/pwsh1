@@ -12,7 +12,7 @@
 RootModule = './MyHCL.Automation.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1'
+ModuleVersion = '1.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -24,13 +24,13 @@ GUID = '593d6bf2-ef7d-493e-970f-c76950e606d4'
 Author = 'Michael Melonas'
 
 # Company or vendor of this module
-CompanyName = 'MASC-F'
+CompanyName = 'MyCompany'
 
 # Copyright statement for this module
-Copyright = 'MASC-F'
+Copyright = 'MyCompany'
 
 # Description of the functionality provided by this module
-Description = 'This is the Jedi MASC-F Privileged User PowerShell Module used to assist in the System Administration of Microsoft Enterprise environments, and vSphere hypervisor platforms. Only authorized admins are allowed to use this toolset.'
+Description = 'This is MyCompany Privileged User PowerShell Module used to assist in the System Administration of Microsoft Enterprise environments, and vSphere hypervisor platforms. Only authorized admins are allowed to use this toolset.'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '7.3.4.0'
