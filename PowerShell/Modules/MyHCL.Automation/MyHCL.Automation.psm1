@@ -1002,10 +1002,10 @@ function Ask-ToRunYourADUserAcctsQuery {
 
     switch -Regex ($MyAnswer) {
 
-        $DefaultYesMatch { Get-MyADUserAccountsDetails | ft -AutoSize
+        $YesMatch { Get-MyADUserAccountsDetails | ft -AutoSize
                     PressEnterToStartQueryingProblemVMs } #End $YesMatch
 
-        $NoMatch { PressEnterToStartQueryingProblemVMs } #End NoMatch
+        $DefaultNoMatch { PressEnterToStartQueryingProblemVMs } #End NoMatch
 
         default { Write-Host "
                   You were given a simple Yes or No question with two very obvious options.
