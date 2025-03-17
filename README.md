@@ -15,7 +15,7 @@ After cloning this repository to get successfully started up you need:
         Make sure you check your repository path in the script.
         The script is statically set, and the default path used by this repository is:
 
-        ~/Documents/Gitlab/
+        ~/Documents/Git/
         
         You can adapt to this File Hierarchy schema, or modify the script with what you want.
 ---
