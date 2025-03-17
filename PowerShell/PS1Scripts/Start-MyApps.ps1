@@ -67,7 +67,7 @@ function DetermineOS {
         Write-Host ""
 
         Set-Item -Path Env:USERDNSDOMAIN -Value (dnsdomainname)
-        $LinuxUserHomePath = "$HOME/Documents/GitLab/jedi/PowerShell/Modules/"
+        $LinuxUserHomePath = "$HOME/Documents/Git/jedi/PowerShell/Modules/"
         $TheUsersEnvPath = "$HOME/.local/share/powershell/Modules/"
         cp -r $LinuxUserHomePath/MyHCL* $TheUsersEnvPath 
 
@@ -86,9 +86,9 @@ function DetermineOS {
         Write-Host ""
         Write-Host ""
 
-        $WindowsUserHomePath = "$HOME\Documents\GitLab\jedi\PowerShell\Modules\"
+        $WindowsUserHomePath = "$HOME\Documents\Git\jedi\PowerShell\Modules\"
         $TheUsersEnvPath     = "$env:USERPROFILE\Documents\PowerShell\Modules\"
-        cp -r $env:USERPROFILE\Documents\GitLab\jedi\PowerShell\Modules\MyHCL* $TheUsersEnvPath -Force
+        cp -r $env:USERPROFILE\Documents\Git\jedi\PowerShell\Modules\MyHCL* $TheUsersEnvPath -Force
 
         Write-Host "Would you like to copy VMware's PowerCLI Modules over to the same directory?" -ForegroundColor Cyan
         Write-Host "Please type Yes or [Default]No:" -ForegroundColor Cyan -NoNewline
