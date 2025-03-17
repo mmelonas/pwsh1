@@ -1002,10 +1002,10 @@ function Ask-ToRunYourADUserAcctsQuery {
 
     switch -Regex ($MyAnswer) {
 
-        $DefaultYesMatch { Get-MyADUserAccountsDetails | ft -AutoSize
+        $YesMatch { Get-MyADUserAccountsDetails | ft -AutoSize
                     PressEnterToStartQueryingProblemVMs } #End $YesMatch
 
-        $NoMatch { PressEnterToStartQueryingProblemVMs } #End NoMatch
+        $DefaultNoMatch { PressEnterToStartQueryingProblemVMs } #End NoMatch
 
         default { Write-Host "
                   You were given a simple Yes or No question with two very obvious options.
@@ -1258,7 +1258,7 @@ function Set-MyVariables {
     $global:wa_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($wausername + '@' + $env:USERDNSDOMAIN)
     $global:First_DC   = Read-Host -Prompt "Enter the Primary Domain Server Name" 
     $global:PrimaryDC  = $First_DC + '@' + $env:USERDNSDOMAIN
-    $global:Second_DC  = Read-Host -Prompt "Enter the Primary Domain Server Name" 
+    $global:Second_DC  = Read-Host -Prompt "Enter the Secondary Domain Server Name" 
     $global:SecondaryDC= $Second_DC + '@' + $env:USERDNSDOMAIN
     $global:vSphereSRV = Read-Host -Prompt "Enter the vSphere Server Name" 
     $global:vSphere    = $vSphereSRV + '@' + $env:USERDNSDOMAIN

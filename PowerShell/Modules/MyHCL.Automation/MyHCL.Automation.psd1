@@ -33,7 +33,7 @@ Copyright = 'MyCompany'
 Description = 'This is MyCompany Privileged User PowerShell Module used to assist in the System Administration of Microsoft Enterprise environments, and vSphere hypervisor platforms. Only authorized admins are allowed to use this toolset.'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '7.3.4.0'
+PowerShellVersion = '7.3.4'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
