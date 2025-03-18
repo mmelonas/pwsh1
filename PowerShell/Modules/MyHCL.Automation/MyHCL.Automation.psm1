@@ -550,7 +550,7 @@ function GoTo-HCL-HorizonView {
 
 #>
 
-    Connect-HVServer $HVServer -Credential $ms_creds
+    Connect-HVServer $HorizonViewServer -Credential $ms_creds
 
 }#End GoTo-HCL-HorizonView
 
@@ -996,7 +996,7 @@ function Ask-ToRunYourADUserAcctsQuery {
     #####################################################################################################
     " -ForegroundColor Green
 
-    $MyAnswer = Read-Host "Answer [N]o or Default [Y]es"
+    $MyAnswer = Read-Host "Answer [Y]es or Default [N]o"
 
     Write-Host `n `n "You answered $MyAnswer" `n `n -ForegroundColor DarkGray
 
@@ -1068,214 +1068,103 @@ function CommonActiveDirectoryCommands {
 
 }#End CommonActiveDirectoryCommands 
 
-function Set-MyVariables {
+function Set-YourCreds {
 
 <#
 .SYNOPSIS
-    Regex vars for setting credentials to secure global varables.
-
-
+    Globally retrieved Cred vars for setting credentials to secure global varables.
+    
 .NOTES   
-    Name: Set-MyVariables
+    Name: Set-YourCreds
     Author: Michael Melonas
     Version: 1.0
-    DateCreated: 2023-JUN-07
-
-
+    DateCreated: 2024-AUg-15
+    
 .EXAMPLE
     For updated help and examples refer to GoogleFu.
-
-
+    
 .LINK
     https://letmegooglethat.com/
-
-#>
-
-    # Global Yes and No Regex matches for user input filtration
-    $global:YesMatch        = '^y(?:e)?(?:s)?$'
-    $global:DefaultYesMatch = '^y(?:e)?(?:s)?$|^\s+$|^$'
-    $global:NoMatch         = '^n(?:o)?$'
-    $global:DefaultNoMatch  = '^n(?:o)?$|^\s+$|^$'
     #>
-
-    $global:Typehasher = @{
-    accdb = "Microsoft Access database file";
-    accde = "Microsoft Access execute-only file";
-    accdr = "Microsoft Access runtime database";
-    accdt = "Microsoft Access database template";
-    avi = "Audio Video Interleave movie or sound file";
-    bat = "PC batch file";
-    bin = "Binary compressed file";
-    bmp = "Bitmap file";
-    cab = "Windows Cabinet file";
-    c = "C Programming File";
-    cc = "C++ Programming File";
-    cfg = "Configuration File";
-    cda = "CD Audio Track";
-    cer = "Certificate File";
-    cert = "Certificate File";
-    ckl = "STIG Checklist";
-    cmd = "Windows Command File";
-    csh = "C Shell File";
-    csv = "Comma-separated values file";
-    dif = "Spreadsheet data interchange format file";
-    dir = "Directory";
-    dll = "Dynamic Link Library file";
-    doc = "Microsoft Word document before Word 2007";
-    docm = "Microsoft Word macro-enabled document";
-    docx = "Microsoft Word document";
-    exe = "Executable program file";
-    flat = "Flat File";
-    flv = "Flash-compatible video file";
-    gif = "Graphical Interchange Format file";
-    go = "golang File";
-    h = "C Programming Core File";
-    htm = "Hypertext markup language page";
-    html = "Hypertext markup language page";
-    in = "Input File";
-    ini = "Windows initialization configuration file";
-    init = "Initialization Configuration File";
-    iso = "ISO-9660 disc image";
-    jar = "Java architecture file";
-    jpg = "Joint Photographic Experts Group photo file";
-    jpeg = "Joint Photographic Experts Group photo file";
-    json = "JavaScript Object Notation";
-    m4a = "MPEG-4 audio file";
-    man = "Manual File";
-    manifest = "Manifest File";
-    md = "Markdown Language File";
-    mdb = "Microsoft Access database before Access 2007";
-    mid = "Musical Instrument Digital Interface file";
-    midi = "Musical Instrument Digital Interface file";
-    mov = "Apple QuickTime movie file";
-    mp3 = "MPEG layer 3 audio file";
-    mp4 = "MPEG 4 video";
-    mpeg = "Moving Picture Experts Group movie file";
-    mpg = "MPEG 1 system stream";
-    msi = "Microsoft installer file";
-    ok = "Digest File";
-    pam = "Pluggable Authentication Module";
-    pdf = "Portable Document Format file";
-    png = "Portable Network Graphics file";
-    pot = "Microsoft PowerPoint template before PowerPoint";
-    potm = "Microsoft PowerPoint macro-enabled template";
-    potx = "Microsoft PowerPoint template";
-    ppam = "Microsoft PowerPoint add-in";
-    pps = "Microsoft PowerPoint slideshow before PowerPoint";
-    ppsm = "Microsoft PowerPoint macro-enabled slideshow";
-    ppsx = "Microsoft PowerPoint slideshow";
-    ppt = "Microsoft PowerPoint format before PowerPoint";
-    pptm = "Microsoft PowerPoint macro-enabled presentation";
-    pptx = "Microsoft PowerPoint presentation";
-    prv = "Private File";
-    psd = "Adobe Photoshop file";
-    ps1 = "Powershell Script";
-    psm1 = "Powershell Module";
-    psd1 = "Powershell Manifest";
-    pst = "Outlook data store";
-    pub = "Microsoft Publisher file";
-    py = "Python Programming File";
-    pyc = "Python Code File";
-    rar = "Roshal Archive compressed file";
-    rc = "Resource File";
-    rst = "reStructuredText markup language";
-    rtf = "Rich Text Format file";
-    rpm = "RedHat Package Manager software package";
-    sldm = "Microsoft PowerPoint macro-enabled slide";
-    sldx = "Microsoft PowerPoint slide";
-    sln = "Visual Studio Solution File";
-    sh = "bash Shell Script";
-    ssh = "Secure Shell File";
-    sshd = "Secure Shell File";
-    sig = "Digital Signature File";
-    spec = "spec String File"
-    svg = "Scalable Vector Graphics";
-    swf = "Shockwave Flash file";
-    sys = "Microsoft DOS and Windows system settings and variables file";
-    tar = "Tarball file";
-    tif = "Tagged Image Format file";
-    tiff = "Tagged Image Format file";
-    tmp = "Temporary data file";
-    txt = "Text Document";
-    unk = "Unknown";
-    vcproj = "Visual C++ File";
-    vcxproj = "Visual C++ Project File";
-    filters = "Visual C++ XML MSBuild File";
-    vob = "Video object file";
-    vsd = "Microsoft Visio drawing before Visio 2013";
-    vsdm = "Microsoft Visio macro-enabled drawing";
-    vsdx = "Microsoft Visio drawing file";
-    vs = "Vertex Shader File";
-    vsh = "Vertex Shader File";
-    vss = "Microsoft Visio stencil before Visio 2013";
-    vssm = "Microsoft Visio macro-enabled stencil";
-    vst = "Microsoft Visio template before Visio 2013";
-    vstm = "Microsoft Visio macro-enabled template";
-    vstx = "Microsoft Visio template";
-    wav = "Wave audio file";
-    wbk = "Microsoft Word backup document";
-    wix = "Windows Installer XML (WiX) File";
-    wixproj = "Windows Installer XML (WiX) Project File";
-    wks = "Microsoft Works file";
-    wma = "Windows Media Audio file";
-    wmd = "Windows Media Download file";
-    wmv = "Windows Media Video file";
-    wmz = "Windows Media skins file";
-    wms = "Windows Media skins file";
-    wpd = "WordPerfect document";
-    wp5 = "WordPerfect document";
-    wxs = "WordPress Export File in XML Format";
-    xla = "Microsoft Excel add-in or macro file";
-    xlam = "Microsoft Excel add-in after Excel 2007";
-    xll = "Microsoft Excel DLL-based add-in";
-    xlm = "Microsoft Excel macro before Excel 2007";
-    xls = "Microsoft Excel workbook before Excel 2007";
-    xlsm = "Microsoft Excel macro-enabled workbook after Excel 2007";
-    xlsx = "Microsoft Excel workbook after Excel 2007";
-    xlt = "Microsoft Excel template before Excel 2007";
-    xltm = "Microsoft Excel macro-enabled template after Excel 2007";
-    xltx = "Microsoft Excel template after Excel 2007";
-    xml = "XML Document";
-    xps = "XML-based document";
-    yml = "Yet Another Markup Language";
-    yaml = "Yet Another Markup Language";
-    zip = "Compressed ZIP file";
-    } #End Typehasher
-
+    
     # My admin creds vars using Get-Credential.
     Write-Host "    Prepare to enter your credentials for secure storage in this shell using the Get-Credential cmd-let." -ForegroundColor Green
     Write-Host ""
     Pause
-
-    # Manually set variables to what you want here if you wish (or DARE . . .)
-
-    $global:MyVM       = (hostname)
-    $global:dausername = Read-Host -Prompt "Enter Domain Admin username" 
-    $global:da_creds   = Get-Credential -Message "Enter the Domain Admin Password" -UserName ($dausername + '@' + $env:USERDNSDOMAIN)
-    $global:msusername = Read-Host -Prompt "Enter Member Server Admin username" 
-    $global:ms_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($msusername + '@' + $env:USERDNSDOMAIN)
-    $global:wausername = Read-Host -Prompt "Enter Workstation Admin username" 
-    $global:wa_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($wausername + '@' + $env:USERDNSDOMAIN)
-    $global:First_DC   = Read-Host -Prompt "Enter the Primary Domain Server Name" 
-    $global:PrimaryDC  = $First_DC + '@' + $env:USERDNSDOMAIN
-    $global:Second_DC  = Read-Host -Prompt "Enter the Secondary Domain Server Name" 
-    $global:SecondaryDC= $Second_DC + '@' + $env:USERDNSDOMAIN
-    $global:vSphereSRV = Read-Host -Prompt "Enter the vSphere Server Name" 
-    $global:vSphere    = $vSphereSRV + '@' + $env:USERDNSDOMAIN
-    $global:HorizenView= Read-Host -Prompt "Enter the Horizon View Server Name" 
-    $global:HVServer   = $HorizenView + '@' + $env:USERDNSDOMAIN
+    
+    $CredSelection = Read-Host -Prompt '
+    Would youlike to enter your admin credentials for each admin account?'
+    
+        switch -Regex ($CredSelection) {
+    
+        $DefaultYesMatch {
+            $global:dausername = Read-Host -Prompt "Enter Domain Admin username" 
+            $global:da_creds   = Get-Credential -Message "Enter the Domain Admin Password" -UserName ($dausername + "@" + $env:USERDNSDOMAIN)
+            $global:msusername = Read-Host -Prompt "Enter Member Server Admin username" 
+            $global:ms_creds   = Get-Credential -Message "Enter the Member Server Admin Password" -UserName ($msusername + "@" + $env:USERDNSDOMAIN)
+            $global:wausername = Read-Host -Prompt "Enter Workstation Admin username" 
+            $global:wa_creds   = Get-Credential -Message "Enter the Workstation Admin Password" -UserName ($wausername + "@" + $env:USERDNSDOMAIN)
+        }# End DefaultYesMatch
+    
+        $NoMatch {Write-Host "No credentials will be gathered."}# End NoMatch
+    
+        3 {
+            $global:MyLastName         = (($env:USERNAME).substring(2)).Trim() 
+            $global:NameToCheckADUC    = ($env:USERNAME).substring(2) 
+            $global:DomainAdmin        = "da" + $MyLastName + "@" + $env:USERDNSDOMAIN
+            $global:MemberServerAdmin  = "ms" + $MyLastName + "@" + $env:USERDNSDOMAIN
+            $global:WorkstationAdmin   = "wa" + $MyLastName + "@" + $env:USERDNSDOMAIN
+            $global:SuperSecret        = Read-Host "Enter PowerCodes" -AsSecureString
+            $global:da_creds           = New-Object System.Management.Automation.PSCredential -ArgumentList ($DomainAdmin).ToString(),$SuperSecret
+            $global:ms_creds           = New-Object System.Management.Automation.PSCredential -ArgumentList ($MemberServerAdmin).ToString(),$SuperSecret
+            $global:wa_creds           = New-Object System.Management.Automation.PSCredential -ArgumentList ($WorkstationAdmin).ToString(),$SuperSecret
+        }# End Alternate
+    
+    }#End Switch 
+    
+    }#End Set-YourCreds
+    
+    function Set-MyVariables {
+    
+    <#
+    .SYNOPSIS
+    Regex vars for setting credentials to secure global varables.
+    
+    .NOTES   
+    Name: Set-MyVariables
+    Author: Michael Melonas
+    Version: 1.0
+    DateCreated: 2023-JUN-07
+    
+    .EXAMPLE
+    For updated help and examples refer to GoogleFu.
+    
+    .LINK
+    https://letmegooglethat.com/
     #>
+    
+    #Set Computernames with full DNS names.
+    
+        if ($env:USERDNSDOMAIN -eq $null -and [System.Environment]::OSVersion.VersionString -like '*nix*') {
+        $env:USERDNSDOMAIN = $(hostname -d)
+    }
 
-    <# My admin creds vars.
-    $global:MyLastName  = (($env:USERNAME).substring(2)).Trim() 
-    $global:NameToCheckADUC = ($env:USERNAME).substring(2) 
-    $global:DomainAdmin        = "da" + $MyLastName + "@" + $env:USERDNSDOMAIN
-    $global:MemberServerAdmin  = "ms" + $MyLastName + "@" + $env:USERDNSDOMAIN
-    $global:SuperSecret     = Read-Host "Enter PowerCodes" -AsSecureString
-    $global:da_creds = New-Object System.Management.Automation.PSCredential -ArgumentList ("da" + $global:NameToCheckADUC + "@hcl.lmco.com").ToString(),$SuperSecret
-    $global:ms_creds = New-Object System.Management.Automation.PSCredential -ArgumentList ("ms" + $global:NameToCheckADUC + "@hcl.lmco.com").ToString(),$SuperSecret
-    #>
+    # Variable for Setting a Custom Date and Time format.
+    $global:DateFormatCustom = '-ddMMMMMMMMMyyyy-HHmm'
 
+    # Gather Domain Controllers, vSphere, and HorizonView Servers.
+    $global:PrimaryDC          = (Read-Host -Prompt "Enter the Primary Domain Server Name") + $env:USERDNSDOMAIN # 'dc00001.' + $env:USERDNSDOMAIN
+    $global:SecondaryDC        = (Read-Host -Prompt "Enter the Primary Domain Server Name") + $env:USERDNSDOMAIN # 'dc00002.' + $env:USERDNSDOMAIN
+    $global:HorizonViewServer  = (Read-Host -Prompt "Enter the Horizon View Server Name")   + $env:USERDNSDOMAIN # 'hzn0001.' + $env:USERDNSDOMAIN
+    $global:vSphere            = (Read-Host -Prompt "Enter the vSphere Server Name")        + $env:USERDNSDOMAIN # 'vcsv01.'  + $env:USERDNSDOMAIN
+    
+    # Global Yes and No Regex matches for user input filtration
+    $global:YesMatch           = '^y(?:e)?(?:s)?$'
+    $global:DefaultYesMatch    = '^y(?:e)?(?:s)?$|^\s+$|^$'
+    $global:NoMatch            = '^n(?:o)?$'
+    $global:DefaultNoMatch     = '^n(?:o)?$|^\s+$|^$'
+    $global:MyVM               = (hostname)
+    
 }#End Set-MyVariables
 
 #Extra untested functions
@@ -1882,7 +1771,7 @@ function notify-account-expiration {
     # Variables
     # SMTP will need to be updated in the future using an authenticated account
     ######################################################################################################################
-    $date = Get-Date -Format yyyyMMdd-hhmmss
+    $date = Get-Date -Format $DateFormatCustom
     $smtpServer = "smtp-lmiden.ems.lmco.com"
     $localfolder = "c:\scripts"
 
@@ -1932,7 +1821,7 @@ function notify-account-expiration {
         # Email Parameters
         $mailParam = @{
             To = "$EmailAddress"
-            From = "hcl-admin@hcl.lmco.com"
+            From = "hcl-admin@" + $env:USERDNSDOMAIN
             Subject = 'MyCompany Account Expiring Soon'
             body = $body
             SmtpServer = $smtpServer
@@ -1946,8 +1835,8 @@ function notify-account-expiration {
 
     if ((Test-Path -Path "$localfolder\$date-var-expiration-dates.csv") -eq $true) {
         $mailParamAdmins = @{
-            To = "MyCompany_systemteam.dl-rms@exch.ems.lmco.com"
-            From = "hcl-admin@hcl.lmco.com"
+            To = "masc-f_systemteam.dl-rms@exch.ems.lmco.com"
+            From = "hcl-admin@" + $env:USERDNSDOMAIN
             Subject = 'MyCompany Account Expiration Dates Report'
             body = 'Please see attached report of upcoming account expirations.'
             SmtpServer = $smtpServer
@@ -1983,7 +1872,7 @@ function New-DynamicAnsibleInventoryGenerator {
     #>
 
     param(
-        [Parameter(ValueFromPipeline=$true)]$TheListedItems=(Get-IPFromVM . | Select-Object name,powerstate,ips | Where-Object {$_.Powerstate -eq 'PoweredOn'}),
+        [Parameter(ValueFromPipeline=$true)]$TheListedItems=(Get-IPFromVM . | Where-Object {$_.Powerstate -eq 'PoweredOn'}),
         [Parameter(ValueFromPipeline=$true)]$OutputFile="IPs_DynamicInventory",
         [Parameter(ValueFromPipeline=$true)]$HostnameOutputFile="Hostnames_DynamicInventory"
     )#>
@@ -1991,8 +1880,8 @@ function New-DynamicAnsibleInventoryGenerator {
     BEGIN {
         #remember [ipaddress]$_ sets and identifies the value as an IP address in PowerShell. 
         $ansible_hostname_blob;$ip_blob;$ansible_ip_blob;$ProdPurposeKeyCombo;$ProdPurposeValueCombo
-        $FullOutputFile = ($OutputFile + (Get-Date -Format FileDateTime) + ".ini")
-        $HostnameFullOutputFile = ($HostnameOutputFile + (Get-Date -Format FileDateTime) + ".ini")
+        $FullOutputFile = ($OutputFile + (Get-Date -Format $DateFormatCustom) + ".ini")
+        $HostnameFullOutputFile = ($HostnameOutputFile + (Get-Date -Format $DateFormatCustom) + ".ini")
         $hostname_blob = $TheListedItems | Select-Object Name,IPs
         $self += @{products=@{o1x="1X";o2x="2X";pro="prototype";srv="servers"}}
         $self += @{purpose=@{dev="development";tst="testing";run="runtime";glr="glrunner";
@@ -2019,18 +1908,19 @@ function New-DynamicAnsibleInventoryGenerator {
                 $ProdPurposeValueCombo = (($self.products.$productKey)+'_'+($self.purpose.$purposeKey))
 
                 $ansible_hostname_blob = $hostname_blob | Where-Object {$_.Name -match $ProdPurposeKeyCombo} | Sort-Object Name -Unique
-                Write-Host "    The count of the Hostnames in $ProdPurposeValueCombo is" $ansible_hostname_blob.Count -ForegroundColor DarkYellow
+                #Write-Host "    The count of the Hostnames in $ProdPurposeValueCombo is" $ansible_hostname_blob.Count -ForegroundColor DarkYellow
                 #Pause
 
-                $self.SetHostnames += @{$ProdPurposeKeyCombo = @{$ProdPurposeValueCombo = (
-                                        $ansible_hostname_blob | foreach {$_.Name + ' ansible_host=' + $_.IPs})}}
-                                        #Write-Host $self.SetHostnames.$ProdPurposeKeyCombo.$ProdPurposeValueCombo
-                                        #Pause
+                $self.SetHostnames += @{$ProdPurposeKeyCombo = @{
+                                        $ProdPurposeValueCombo = (
+                                        $ansible_hostname_blob |
+                                        Sort-Object Name |
+                                        foreach {$_.Name + ' ansible_host=' + $_.IPs})}}# End foreach
 
                 $ip_blob += ($TheListedItems | Where-Object {
                             $_.Name -match $ProdPurposeKeyCombo
                             }).IPs | Select-Object -Unique
-                Write-Host "    The count of the IPS in $ProdPurposeValueCombo is" $ip_blob.count `n -ForegroundColor DarkYellow
+                #Write-Host "    The count of the IPS in $ProdPurposeValueCombo is" $ip_blob.count `n -ForegroundColor DarkYellow
                 #Pause
 
                 $grouped_ip_blob = $ip_blob | Group-Object -AsHashTable {
@@ -2137,8 +2027,7 @@ function New-DynamicAnsibleInventoryGenerator {
 
     }#End PROCESS
 
-    END {
-        
+    END {        
         sleep 3
         Write-Host `n `n `n 
         Write-Host "Your accumulated IP results in Ansible ini file format are located here in ~/Documents/AnsibleInventoryFiles/$FullOutputFile." `n -ForegroundColor DarkCyan
@@ -2148,6 +2037,7 @@ function New-DynamicAnsibleInventoryGenerator {
     }#End END
 
 }#End New-DynamicAnsibleInventory
+
 Function Remove-DNSEntry {
 
     <#
@@ -2175,9 +2065,9 @@ Remove-DNSEntry -NodeToDelete "it01" -DNSServer "dc01.global.cotonso.com" -ZoneN
    [parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true)]
    [string]$NodeToDelete,
    [parameter(Mandatory=$false,Position=1,ValueFromPipeline=$true)]
-   [string]$DNSServer = "hcl-dc01.hcl.lmco.com", 
+   [string]$DNSServer = $PrimaryDC + "." + $env:USERDNSDOMAIN, 
    [parameter(Mandatory=$false,Position=2,ValueFromPipeline=$true)]
-   [string]$ZoneName = "hcl.lmco.com"
+   [string]$ZoneName = $env:USERDNSDOMAIN
    )
 
 
@@ -2519,4 +2409,92 @@ function Get-WhoDidStuffINvSphere {
             @{N = 'Datastore'; E = {$_.Ds.Name}}
 
 }# End Get-WhoDidStuffINvSphere 
-#>
+
+function Reset-SnapshotDefaultVMwareNamesToDateTimeItWasCreated {
+    <#
+    .SYNOPSIS
+        Reconfigures the default snapshot name to the date timestamp it was created. 
+    
+    .NOTES   
+        Name: Reset-SnapshotDefaultVmwareNamesToDateTimeItWasCreated
+        Author: Michael Melonas
+        Version: 1.0
+        DateCreated: 2024-SEP-04
+    
+    .EXAMPLE
+        Default vm snapshots contain the % character, which is not useful in anyway.
+        Running this command as is finds any snapshot with a '%' character, and renames
+        it to the date time stamp it was created.
+        For more in depth understanding for updated help and examples refer to GoogleFu.
+    
+    .LINK
+        https://letmegooglethat.com/
+    #>
+    
+        Get-VM | Get-Snapshot | Select-Object * | Where-Object {$_.name -match '%'} | foreach {
+            Write-Host `n "Changing" $_.vm "Snapshot Name" $_.name "to its datetimestamp creation:" (Get-Date ($_.Created) -Format ddMMMMMMMMMyyyy-HHmm) -ForegroundColor Cyan
+            Get-Snapshot -VM $_.VM -Name $_.Name | Set-Snapshot -Name (Get-Date $_.Created -Format $DateFormatCustom)}
+    
+    }#End Reset-SnapshotDefaultVmwareNamesToDateTimeItWasCreated
+    
+    function Install-SSHOnWindows {
+    
+    <#
+    .SYNOPSIS
+        Install and configure OpenSSH client and OpenSSH server on all Windows systems.
+    
+    .NOTES   
+        Name: Install-SSHOnWindows
+        Author: Michael Melonas
+        Version: 1.0
+        DateCreated: 2024-AUG-15
+    
+    .EXAMPLE
+        For updated help and examples refer to GoogleFu.
+    
+    .LINK
+        https://letmegooglethat.com/
+    #>
+        [CmdletBinding()]
+    
+        param(
+           [Parameter(ValueFromPipeline=$true)]
+           $TheListedItems=(Get-IPFromVM . )
+            )#End param
+    
+        Begin {
+        $FullOutputFile = ("WindowsSSHInstall" + (Get-Date -Format $DateFormatCustom) + ".txt")
+        $AllWinSystems = $TheListedItems | Where-Object {$_.guestos -match 'windows'} | Sort-Object Name
+        $AllWinSystems | ft name,gue* -a
+        $WinSSHScriptBlock = {
+            Write-Host "Current VM is:" (hostname)
+            cp -r //share01/admin2/OpenSSH ~\Documents -Force
+            cp -r ~\Documents\OpenSSH "C:\Program Files\" -Force
+            cd "C:\Program Files\OpenSSH\OpenSSH-Win64\OpenSSH-Win64\"
+            $env:Path = $env:Path + ';C:\Program Files\OpenSSH\OpenSSH-Win64\OpenSSH-Win64\'
+            ./install-sshd.ps1
+            cp "C:\Program Files\OpenSSH\sshd_config" "C:\ProgramData\ssh\" -Force
+            cp "C:\Program Files\OpenSSH\administrators_authorized_keys" "C:\ProgramData\ssh\" -Force
+            icacls.exe "C:\ProgramData\ssh\" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
+            New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" `
+                -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" `
+                -PropertyType String -Force
+            Get-Service | Where-Object {$_.servicename -match "^ssh"} | 
+                foreach {Set-Service $_.name -StartupType Automatic;Restart-Service $_.name}}
+        }#End Begin
+    
+        Process {
+    
+            #Write-Host $AllWinSystems.Name -ForegroundColor Green
+            #Pause
+    
+            foreach ($EachVM in $AllWinSystems) {
+                #Write-Host $EachVM.Name $EachVM.GuestOS -ForegroundColor Green
+                
+                if     ($EachVM.GuestOS -match 'Windows 10') {Invoke-VMScript -VM $EachVM.name -ScriptText {$WinSSHScriptBlock} -GuestCredential $wa_creds}
+                elseif ($EachVM.GuestOS -match 'Windows Server' -and $_.Name -notmatch 'dc0') {Invoke-VMScript -VM $EachVM.name -ScriptText {$WinSSHScriptBlock} -GuestCredential $ms_creds}
+                elseif ($EachVM.Name -match 'dc0') {Invoke-VMScript -VM $EachVM.name -ScriptText {$WinSSHScriptBlock} -GuestCredential $da_creds}
+    
+            }#End foreach
+        }#End Process
+    }#End Install-SSHOnWindows
