@@ -1145,7 +1145,8 @@ function Set-YourCreds {
     
     #Set Computernames with full DNS names.
     
-        if ($env:USERDNSDOMAIN -eq $null -and [System.Environment]::OSVersion.VersionString -like '*nix*') {
+        #if ($env:USERDNSDOMAIN -eq $null -and [System.Environment]::OSVersion.VersionString -like '*nix*') {
+        if ([System.Environment]::OSVersion.VersionString -like '*nix*') {
         $env:USERDNSDOMAIN = $(hostname -d)
     }
 
