@@ -1151,7 +1151,7 @@ function Set-YourCreds {
     }
 
     # Variable for Setting a Custom Date and Time format.
-    $global:DateFormatCustom = '-ddMMMMMMMMMyyyy-HHmm'
+    $global:DateFormatCustom = 'ddMMMMMMMMMyyyy-HHmmss'
 
     # Gather Domain Controllers, vSphere, and HorizonView Servers.
     $global:PrimaryDC          = (Read-Host -Prompt "Enter the Primary Domain Server Name") + $env:USERDNSDOMAIN # 'dc00001.' + $env:USERDNSDOMAIN
@@ -1881,8 +1881,8 @@ function New-DynamicAnsibleInventoryGenerator {
     BEGIN {
         #remember [ipaddress]$_ sets and identifies the value as an IP address in PowerShell. 
         $ansible_hostname_blob;$ip_blob;$ansible_ip_blob;$ProdPurposeKeyCombo;$ProdPurposeValueCombo
-        $FullOutputFile = ($OutputFile + (Get-Date -Format $DateFormatCustom) + ".ini")
-        $HostnameFullOutputFile = ($HostnameOutputFile + (Get-Date -Format $DateFormatCustom) + ".ini")
+        $FullOutputFile = ($OutputFile + '_' + (Get-Date -Format $DateFormatCustom) + ".ini")
+        $HostnameFullOutputFile = ($HostnameOutputFile + '_' + (Get-Date -Format $DateFormatCustom) + ".ini")
         $hostname_blob = $TheListedItems | Select-Object Name,IPs
         $self += @{products=@{o1x="1X";o2x="2X";pro="prototype";srv="servers"}}
         $self += @{purpose=@{dev="development";tst="testing";run="runtime";glr="glrunner";
@@ -2038,6 +2038,190 @@ function New-DynamicAnsibleInventoryGenerator {
     }#End END
 
 }#End New-DynamicAnsibleInventory
+
+function New-AnsibleInventories {
+
+    [CmdletBinding(SupportsPaging)]
+
+    <#
+    .SYNOPSIS
+    Create a Dynamic Ansible Inventory file from a list of IPs gathered from vSphere VM name matches.
+
+    .DESCRIPTION
+    Create a Dynamic Ansible Inventory file from a list of IPs gathered from vSphere VM name matches.
+    Default values -TheListedItems grab every VM out of vSphere along with it's associated IP, and
+    -OutputFile is set to ~/Documents/NewAnsibleDynamicInventory.ini
+
+    .EXAMPLE
+    New-DynamicAnsibleInventoryGenerator
+    $MyResults =  New-DynamicAnsibleInventoryGenerator
+
+    .LINKS
+    https://qwant.com
+    #>
+
+    param(
+        [Parameter(ValueFromPipeline=$true)]$TheListedItems=(Get-IPFromVM . | Where-Object {$_.Powerstate -eq 'PoweredOn'}),
+        [Parameter(ValueFromPipeline=$true)]$IPOutputFile=("IPs_DynamicInventory" + '_' + (Get-Date -Format DateFormatCustom) + ".ini"),
+        [Parameter(ValueFromPipeline=$true)]$HostnameOutputFile=("Hostnames_DynamicInventory" + '_' + (Get-Date -Format DateFormatCustom) + ".ini"),
+        [Parameter(ValueFromPipeline=$true)]$GroupedDataSet=@{products=@{o1x="1X";o2x="2X";pro="prototype";srv="servers";dev="development";
+                                                              bzr="bazelremote";aqu="aquasec";aap="ansible";gpu="nvidia";
+                                                              sbx="sandbox";tst="testing";run="runtime";glr="glrunner";}}
+    )#>
+
+    BEGIN {
+        #remember [ipaddress]$_ sets and identifies the value as an IP address in PowerShell. 
+        $ansible_hostname_blob;$ip_blob;$ansible_ip_blob;$ProdPurposeKeyCombo;$ProdPurposeValueCombo
+        $FullOutputFile = $IPOutputFile;$HostnameFullOutputFile = $HostnameOutputFile 
+        $hostname_blob = $TheListedItems | Select-Object Name,IPs
+        $self += $GroupedDataSet
+        $self += @{IPInventory = @{}};$self += @{SetIPs = @{}};$self += @{SetHostnames = @{}}
+        $self += @{LinuxInfrastructure = @{Linux=@{}}};$self += @{WindowsInfrastructure = @{Windows=@{}}}
+    }#End Begin
+
+    PROCESS {
+
+        if (!(Test-Path ~/Documents/AnsibleInventoryFiles)) {
+
+            mkdir -p ~/Documents/AnsibleInventoryFiles
+
+        }# End if
+
+        foreach ($productKey in $self.products.Keys) {
+            foreach ($otherKey in $self.products.Keys) {
+                #Write-Host $productKey "and" $otherKey -ForegroundColor DarkYellow
+
+                $ip_blob = @()
+                $ansible_hostname_blob = @()
+                $ProdPurposeKeyCombo   = (($productKey)+'-'+($otherKey))
+                $ProdPurposeValueCombo = (($self.products.$productKey)+'_'+($self.products.$otherKey))
+
+                $ansible_hostname_blob = $hostname_blob | Where-Object {$_.Name -match $ProdPurposeKeyCombo} | Sort-Object Name -Unique
+                #Write-Host "    The count of the Hostnames in $ProdPurposeValueCombo is" $ansible_hostname_blob.Count -ForegroundColor DarkYellow
+                #Pause
+
+                $self.SetHostnames += @{$ProdPurposeKeyCombo = @{$ProdPurposeValueCombo = ($ansible_hostname_blob | Sort-Object Name | 
+                                        foreach {$_.Name + ' ansible_host=' + $_.IPs})}}# End foreach
+
+                $ip_blob += ($TheListedItems | Where-Object {$_.Name -match $ProdPurposeKeyCombo}).IPs | Select-Object -Unique
+
+                #Write-Host "    The count of the IPS in $ProdPurposeValueCombo is" $ip_blob.count `n -ForegroundColor DarkYellow
+                #Pause
+
+                $grouped_ip_blob = $ip_blob | Group-Object -AsHashTable {
+                                   $_.Substring(0, $_.LastIndexOf('.')) }
+
+                $self.IPInventory += @{$ProdPurposeKeyCombo = @{$ProdPurposeValueCombo = $grouped_ip_blob}}
+
+                #Now Setting the Ansible IP Sets in these nested loops:
+                ForEach ($EachKey in $($grouped_ip_blob.Keys)) {
+
+                    $ansible_ip_blob = @()
+
+                    #Write-Host $EachKey -ForegroundColor Magenta
+                    #Write-Host $grouped_ip_blob.$EachKey -ForegroundColor DarkYellow
+
+                    [string[]]$TempIPRange = (($grouped_ip_blob.$EachKey.ForEach({[IPAddress]$_})) |
+                                             Sort-Object Address).IPAddressToString #End $TempIPRange Variable
+
+                    #Write-Host $TempIPRange -ForegroundColor Cyan                    
+
+                    [string]$TheStartIteration = $TempIPRange[0]
+
+                    for ($j = 0;$j -lt $TempIPRange.Count; $j++) {
+
+                        if  ($j -eq ($TempIPRange.Count -1) -and `
+                            ([int]($TempIPRange[$j-1].Split('.')[3]) +1) `
+                            -eq [int]($TempIPRange[$j].Split('.')[3])) {
+                            $ansible_ip_blob += (($EachKey + '.[' + $TheStartIteration.Split('.')[3] `
+                            + ':' + ($TempIPRange[($TempIPRange.count - 1)]).Split('.')[3] + ']'))
+                        }#End if
+
+                        elseif  ($j -eq ($TempIPRange.Count -1)) {$ansible_ip_blob +=  $TempIPRange[$j]}#End if
+
+                        elseif (
+                            ([int]($TempIPRange[$j].Split('.')[3]) - 1) -ne ([int]($TempIPRange[$j-1].Split('.')[3])) -and `
+                            ([int]($TempIPRange[$j].Split('.')[3]) + 1) -ne ([int]($TempIPRange[$j+1].Split('.')[3]))
+                        ) {
+                            $ansible_ip_blob +=  $TempIPRange[$j];$TheStartIteration = $TempIPRange[$j+1]
+                        }#End elseif
+
+                        elseif (
+                            ([int]($TempIPRange[$j].Split('.')[3]) +1) -ne [int]($TempIPRange[$j+1].Split('.')[3]) 
+                        ) {
+                            $ansible_ip_blob += $EachKey + '.[' + [string]$TheStartIteration.Split('.')[3] `
+                                                + ':' + [string]$TempIPRange[$j].Split('.')[3]  + ']'
+                            $TheStartIteration = $TempIPRange[$j+1]
+                        }#End elseif
+                    }#End for $j loop
+
+                $self.SetIPs += @{$($ProdPurposeKeyCombo+'_'+$EachKey) = @{$($ProdPurposeValueCombo+'_'+$EachKey) = $ansible_ip_blob}}
+
+                }#End foreach $EachKey loop
+
+            #Match value to use $ProdPurposeValueCombo
+
+            if ($self.SetIPs.Values.Keys -match $ProdPurposeValueCombo) {
+
+                Write-Host "    Output Inventory Group $ProdPurposeValueCombo" -ForegroundColor Green
+                Write-Host "    for IP range going into file ~/Documents/AnsibleInventoryFiles/$FullOutputFile" -ForegroundColor Green
+                ('['+$ProdPurposeValueCombo+']') | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$FullOutputFile -Append
+
+                Write-Host "    Output IPs for the currently iterative Group $ProdPurposeValueCombo" -ForegroundColor DarkGreen
+                ($self.SetIPs.Values | Where-Object {$_.keys -match $ProdPurposeValueCombo}) |
+                Select-Object -ExpandProperty Values | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$FullOutputFile -Append
+                "`n" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$FullOutputFile -Append #For carriage returns use "`r"
+            }# End if
+
+            }#End foreach
+        
+        }#End foreach
+
+        Write-Host `n `n "      Writing to the Hostname and IP Inventory files . . ." `n `n -ForegroundColor Blue
+
+        "[Infrastructure:children]" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        $self.LinuxInfrastructure.Keys | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        $self.WindowsInfrastructure.Keys | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        "`n" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append #For carriage returns use "`r"
+
+        $PopulatedHostKeysAndValues = $self.SetHostnames.Values | Where-Object {$_.Values -ne $null}
+
+        "[IaC:children]" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        $PopulatedHostKeysAndValues.Keys | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        "`n" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append #For carriage returns use "`r"
+
+        "[Linux]" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        $self.LinuxInfrastructure = @{Linux = $TheListedItems |
+            Where-Object {$_.IPs -like "*.50.*" -and $_.GuestOS -match 'Linux'} |
+            Sort-Object Name | foreach {$_.Name + ' ansible_host=' + $_.IPs}} 
+        $self.LinuxInfrastructure.Values | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        "`n" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append #For carriage returns use "`r"
+
+        "[Windows]" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        $self.WindowsInfrastructure = @{Windows = $TheListedItems |
+            Where-Object {$_.IPs -like "*.50.*" -and $_.GuestOS -match 'Windows'} |
+            Sort-Object Name | foreach {$_.Name + ' ansible_host=' + $_.IPs}}
+        $self.WindowsInfrastructure.Values | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+        "`n" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append #For carriage returns use "`r"
+
+        foreach ($HostKey in $PopulatedHostKeysAndValues) {
+            "["+$HostKey.Keys+"]"   | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+            $HostKey.Values | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append
+            "`n" | Out-File -FilePath ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile -Append #For carriage returns use "`r"
+        }
+
+    }#End PROCESS
+
+    END {        
+        sleep 3
+        Write-Host `n `n `n 
+        Write-Host "Your accumulated IP results in Ansible ini file format are located here in ~/Documents/AnsibleInventoryFiles/$FullOutputFile." `n -ForegroundColor DarkCyan
+        Write-Host "Your accumulated Hostname results in Ansible ini file format are located here in ~/Documents/AnsibleInventoryFiles/$HostnameFullOutputFile." -ForegroundColor Blue
+        Write-Host `n `n `n
+        return $self
+    }#End END
+
+}#End New-AnsibleInventories
 
 Function Remove-DNSEntry {
 
@@ -2433,11 +2617,11 @@ function Reset-SnapshotDefaultVMwareNamesToDateTimeItWasCreated {
     #>
     
         Get-VM | Get-Snapshot | Select-Object * | Where-Object {$_.name -match '%'} | foreach {
-            Write-Host `n "Changing" $_.vm "Snapshot Name" $_.name "to its datetimestamp creation:" (Get-Date ($_.Created) -Format ddMMMMMMMMMyyyy-HHmm) -ForegroundColor Cyan
+            Write-Host `n "Changing" $_.vm "Snapshot Name" $_.name "to its datetimestamp creation:" (Get-Date ($_.Created) -Format $DateFormatCustom) -ForegroundColor Cyan
             Get-Snapshot -VM $_.VM -Name $_.Name | Set-Snapshot -Name (Get-Date $_.Created -Format $DateFormatCustom)}
     
     }#End Reset-SnapshotDefaultVmwareNamesToDateTimeItWasCreated
-    
+
     function Install-SSHOnWindows {
     
     <#
@@ -2464,7 +2648,7 @@ function Reset-SnapshotDefaultVMwareNamesToDateTimeItWasCreated {
             )#End param
     
         Begin {
-        $FullOutputFile = ("WindowsSSHInstall" + (Get-Date -Format $DateFormatCustom) + ".txt")
+        $FullOutputFile = ("WindowsSSHInstall" + '_' + (Get-Date -Format $DateFormatCustom) + ".txt")
         $AllWinSystems = $TheListedItems | Where-Object {$_.guestos -match 'windows'} | Sort-Object Name
         $AllWinSystems | ft name,gue* -a
         $WinSSHScriptBlock = {
