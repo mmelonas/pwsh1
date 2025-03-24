@@ -788,7 +788,7 @@ function Check-KeyPress ($sleepSeconds = 10) {
         ***  Press the ANY key to GoTo the Menu to take action on the listed systems.  ***
         ***  If not just wait for the query to run again.  ***
                                                                  
-        " `n -ForegroundColor Yellow -BackgroundColor Black
+        " `n -ForegroundColor Yellow 
 
         Write-Host "        Counting up with "          -ForegroundColor Yellow -NoNewline
         Write-Host $stopWatch.Elapsed.Seconds           -ForegroundColor Cyan   -NoNewline
@@ -862,7 +862,7 @@ function Menu4VMsWithNoIPsOrOSInfo  {
         #  3) Exit to the shell                                      #
         #                                                            #
         ##############################################################
-        } -ForegroundColor Green -BackgroundColor Black
+        } -ForegroundColor Green #-BackgroundColor Black
 
         Write-Host "        There are currently <" -ForegroundColor DarkGray -NoNewline
         Write-Host $CurrentProblemVMs.count -ForegroundColor Yellow -NoNewline
