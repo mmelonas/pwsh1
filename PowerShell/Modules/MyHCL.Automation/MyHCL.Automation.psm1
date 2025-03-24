@@ -1119,6 +1119,18 @@ function Set-YourCreds {
             $global:ms_creds           = New-Object System.Management.Automation.PSCredential -ArgumentList ($MemberServerAdmin).ToString(),$SuperSecret
             $global:wa_creds           = New-Object System.Management.Automation.PSCredential -ArgumentList ($WorkstationAdmin).ToString(),$SuperSecret
         }# End Alternate
+
+        4 {
+            $global:MyLastName         = $env:USERNAME
+            $global:NameToCheckADUC    = $env:USERNAME
+            $global:DomainAdmin        = "da" + $MyLastName + "@" + $env:USERDNSDOMAIN
+            $global:MemberServerAdmin  = "ms" + $MyLastName + "@" + $env:USERDNSDOMAIN
+            $global:WorkstationAdmin   = "wa" + $MyLastName + "@" + $env:USERDNSDOMAIN
+            $global:SuperSecret        = Read-Host "Enter PowerCodes" -AsSecureString
+            $global:da_creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($DomainAdmin).ToString(),$SuperSecret
+            $global:ms_creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($MemberServerAdmin).ToString(),$SuperSecret
+            $global:wa_creds = New-Object System.Management.Automation.PSCredential -ArgumentList ($WorkstationAdmin).ToString(),$SuperSecret
+        }# End Alternate
     
     }#End Switch 
     
