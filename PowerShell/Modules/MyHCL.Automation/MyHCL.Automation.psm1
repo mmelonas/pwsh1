@@ -1157,13 +1157,17 @@ function Set-YourCreds {
     
     #Set Computernames with full DNS names.
     
-        #if ($env:USERDNSDOMAIN -eq $null -and [System.Environment]::OSVersion.VersionString -like '*nix*') {
-        if ([System.Environment]::OSVersion.VersionString -like '*nix*') {
-        $env:USERDNSDOMAIN = $(hostname -d)
-    }
+    #if ($env:USERDNSDOMAIN -eq $null -and [System.Environment]::OSVersion.VersionString -like '*nix*') {
+    if ([System.Environment]::OSVersion.VersionString -like '*nix*') {
+        $env:USERDNSDOMAIN = $(hostname -d)}# End if
 
     # Variable for Setting a Custom Date and Time format.
     $global:DateFormatCustom = 'ddMMMMMMMMMyyyy-HHmmss'
+
+    # Check the $env:USERNAME to ensure it is populated
+    if ($env:USERNAME -eq $null) {
+        Write-Host 'Setting $env:USERNAME since it is missing' -ForegroundColor Cyan
+        $env:USERNAME = (whoami)}# End if
 
     # Gather Domain Controllers, vSphere, and HorizonView Servers.
     $global:PrimaryDC          = (Read-Host -Prompt "Enter the Primary Domain Server Name") + $env:USERDNSDOMAIN # 'dc00001.' + $env:USERDNSDOMAIN
